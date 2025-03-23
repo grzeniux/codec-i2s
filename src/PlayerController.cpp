@@ -1,6 +1,8 @@
 #include "PlayerController.h"
 
-PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd) {}
+PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd) {
+    updateTrackInfo();
+}
 
 void PlayerController::handleInput(ButtonManager& buttons) {
     if (buttons.wasVolUpPressed() && volumeLevel < 10) {
@@ -20,14 +22,14 @@ void PlayerController::handleInput(ButtonManager& buttons) {
     
     if (buttons.wasNextTrackPressed()) {
         sdManager.nextTrack();
-        currentTime = 0;
+        updateTrackInfo();
         nextClicked = true;
         nextClickTime = millis();
     }
     
     if (buttons.wasPrevTrackPressed()) {
         sdManager.prevTrack();
-        currentTime = 0;
+        updateTrackInfo();
         prevClicked = true;
         prevClickTime = millis();
     }
@@ -49,12 +51,15 @@ String PlayerController::getCurrentSongTitle() const { return sdManager.getCurre
 void PlayerController::setPlay(bool play) { playing = play; }
 bool PlayerController::wasVolumeChanged() { return volumeChanged; }
 void PlayerController::clearVolumeChangedFlag() { volumeChanged = false; }
-bool PlayerController::isPlayClicked() {
-    return playClicked && millis() - playClickTime < CLICK_ANIM_DURATION;
-}
-bool PlayerController::isNextClicked() {
-    return nextClicked && millis() - nextClickTime < CLICK_ANIM_DURATION;
-}
-bool PlayerController::isPrevClicked() {
-    return prevClicked && millis() - prevClickTime < CLICK_ANIM_DURATION;
+bool PlayerController::isPlayClicked() { return playClicked && millis() - playClickTime < CLICK_ANIM_DURATION; }
+bool PlayerController::isNextClicked() { return nextClicked && millis() - nextClickTime < CLICK_ANIM_DURATION; }
+bool PlayerController::isPrevClicked() { return prevClicked && millis() - prevClickTime < CLICK_ANIM_DURATION; }
+void PlayerController::updateTrackInfo() {
+    int duration = sdManager.getCurrentTrackDuration();
+    if (duration <= 0) {
+        Serial.println("[PlayerController] Uwaga: totalTime = 0, ustawiam na 10s awaryjnie");
+        duration = 10;
+    }
+    totalTime = duration;
+    currentTime = 0;
 }

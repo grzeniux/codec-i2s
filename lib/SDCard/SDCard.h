@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <SD.h>
 #include <vector>
+#include "MP3InfoExtractor.h"
 
 class SDCardManager {
 public:
@@ -13,6 +14,7 @@ public:
     String getCurrentTrack();
     void nextTrack();
     void prevTrack();
+    int getCurrentTrackDuration();
 
 private:
     SDCardManager() {};

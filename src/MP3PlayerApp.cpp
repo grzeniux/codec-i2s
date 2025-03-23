@@ -13,6 +13,7 @@ void MP3PlayerApp::setup() {
 
     if (sdManager.begin(5)) {
         Serial.println("Piosenki załadowane z karty SD.");
+        player.updateTrackInfo();
     }
 }
 
