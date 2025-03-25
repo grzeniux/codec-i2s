@@ -40,6 +40,11 @@ void PlayerController::update() {
     if (millis() - lastSecondUpdate >= SECOND_INTERVAL) {
         lastSecondUpdate = millis();
         if (playing && currentTime < totalTime) currentTime++;
+        else {
+            sdManager.nextTrack();
+            updateTrackInfo();
+        }
+
     }
 }
 
