@@ -26,7 +26,7 @@ void OLEDDisplayManager::drawVolumeScreen(int volumeLevel) {
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(10, 5);
-    display.print("Glosnosc");
+    display.print("Volume");
 
     display.drawRect(10, 30, 100, 10, WHITE);
     int barWidth = (volumeLevel * 100) / 10;

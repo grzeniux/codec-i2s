@@ -39,18 +39,17 @@ String SDCardManager::getCurrentTrack() {
     return track;
 }
 
-
 void SDCardManager::nextTrack() {
     if (!mp3Files.empty()) {
         currentTrackIndex = (currentTrackIndex + 1) % mp3Files.size();
-        Serial.println("Następna piosenka: " + mp3Files[currentTrackIndex]);
+        // Serial.println("Następna piosenka: " + mp3Files[currentTrackIndex]);
     }
 }
 
 void SDCardManager::prevTrack() {
     if (!mp3Files.empty()) {
         currentTrackIndex = (currentTrackIndex - 1 + mp3Files.size()) % mp3Files.size();
-        Serial.println("Poprzednia piosenka: " + mp3Files[currentTrackIndex]);
+        // Serial.println("Poprzednia piosenka: " + mp3Files[currentTrackIndex]);
     }
 }
 
@@ -66,7 +65,7 @@ int SDCardManager::getCurrentTrackDuration() {
 
     File f = SD.open(fullPath.c_str());
     if (!f) {
-        Serial.println("[DEBUG] SD.open() nie widzi pliku – może coś jeszcze?");
+        // Serial.println("[DEBUG] SD.open() nie widzi pliku – może coś jeszcze?");
         return 0;
     }
     f.close();

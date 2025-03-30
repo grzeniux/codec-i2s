@@ -28,10 +28,18 @@ MP3PlayerApp app(buttons, oledManager, sdManager, player, ui);
 
 void setup() {
     out->SetPinout(26, 25, 27);  // BCLK = 26, WS = 25, SDOUT = 27
-    out->SetGain(0.0);           // cisza (nie odtwarzamy dźwięku) bo nie ma czym :(
+    out->SetOutputModeMono(true);
     app.setup();
 }
 
 void loop() {
     app.loop();
+
+    //DEBUG - MEMORY
+    static unsigned long lastMemCheck = 0;
+    if (millis() - lastMemCheck > 5000) {
+    lastMemCheck = millis();
+    Serial.printf("[MEM] Free heap: %d bytes\n", ESP.getFreeHeap());
+    }
+
 }
