@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "Buttons.h"
 #include "SDCard.h"
+#include <AudioOutputI2S.h>
 
 class PlayerController {
 public:

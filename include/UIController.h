@@ -7,7 +7,8 @@
 class UIController {
 public:
     UIController(OLEDDisplayManager& display);
-    void update(PlayerController& player);
+    void update(PlayerController& player, bool force = false);
+    void setUiEnabled(bool enabled);
 
 private:
     OLEDDisplayManager& displayManager;
@@ -19,6 +20,7 @@ private:
     int scrollPixelOffset = 0;
     unsigned long lastScrollTime = 0;
     const unsigned long SCROLL_INTERVAL = 20;
+    bool uiEnabled = true;
 };
 
 #endif

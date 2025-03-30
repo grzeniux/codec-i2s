@@ -2,7 +2,14 @@
 
 UIController::UIController(OLEDDisplayManager& display) : displayManager(display) {}
 
-void UIController::update(PlayerController& player) {
+void UIController::update(PlayerController& player, bool force) {
+    if (!uiEnabled) return;
+
+    static unsigned long lastUIUpdate = 0;
+    const unsigned long UI_REFRESH_INTERVAL = 200;
+    if (!force && millis() - lastUIUpdate < UI_REFRESH_INTERVAL) return;
+    lastUIUpdate = millis();
+
     String songTitle = player.getCurrentSongTitle();
     int textWidth = songTitle.length() * 6;
 

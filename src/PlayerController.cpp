@@ -1,5 +1,9 @@
 #include "PlayerController.h"
 
+extern AudioOutputI2S* out;
+
+
+
 PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd) {
     updateTrackInfo();
 }
@@ -39,12 +43,17 @@ void PlayerController::handleInput(ButtonManager& buttons) {
 void PlayerController::update() {
     if (millis() - lastSecondUpdate >= SECOND_INTERVAL) {
         lastSecondUpdate = millis();
-        if (playing && currentTime < totalTime) currentTime++;
-        else {
+
+        // Sekundnik utworu
+        if (playing && currentTime < totalTime) {
+            currentTime++;
+        } else if (playing && currentTime >= totalTime) {
             sdManager.nextTrack();
             updateTrackInfo();
         }
 
+        float gain = volumeLevel / 10.0;   // volumeLevel: 0–10 → gain: 0.0–1.0
+        out->SetGain(gain);
     }
 }
 

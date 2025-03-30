@@ -6,6 +6,9 @@
 #include "SDCard.h"
 #include "PlayerController.h"
 #include "UIController.h"
+#include <AudioFileSourceSD.h>
+#include <AudioGeneratorMP3.h>
+#include "MP3InfoExtractor.h"
 
 class MP3PlayerApp {
 public:
@@ -22,6 +25,7 @@ private:
 
     unsigned long lastUpdate = 0;
     const unsigned long LOOP_DELAY = 20;
+    bool isPaused = false;
 };
 
 #endif
