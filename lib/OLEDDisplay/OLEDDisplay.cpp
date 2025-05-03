@@ -7,9 +7,9 @@ Adafruit_SSD1306& OLEDDisplayManager::getDisplay() {
     return display;
 }
 
-void OLEDDisplayManager::drawMainScreen(const char* songTitle, int currentTime, int totalTime, bool isPlaying) {
+void OLEDDisplayManager::drawMainScreen(const char* songTitle, int currentTime, int totalTime, bool isPlaying, float batteryVoltage){
     display.clearDisplay();
-    drawIcons();
+    drawIcons(batteryVoltage);
     drawTime(currentTime, totalTime);
     drawNote();
     drawProgressBar(currentTime, totalTime);
@@ -34,8 +34,19 @@ void OLEDDisplayManager::drawVolumeScreen(int volumeLevel) {
     display.display();
 }
 
-void OLEDDisplayManager::drawIcons() {
+void OLEDDisplayManager::drawIcons(float batteryVoltage) {
     display.drawBitmap(86, 0, bluetoothIcon, 8, 12, WHITE);
+
+    const unsigned char* batteryIcon;
+
+    if (batteryVoltage >= 4.0) {
+        batteryIcon = battery_100;
+    } else if (batteryVoltage >= 3.70) {
+        batteryIcon = battery_65;
+    } else {
+        batteryIcon = battery_20;
+    }
+
     display.drawBitmap(96, 0, batteryIcon, 27, 14, WHITE);
 }
 
