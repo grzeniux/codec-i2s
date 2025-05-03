@@ -7,7 +7,7 @@
 class UIController {
 public:
     UIController(OLEDDisplayManager& display);
-    void update(PlayerController& player, bool force = false);
+    void update(PlayerController& player, bool force, float batteryVoltage);
     void setUiEnabled(bool enabled);
 
 private:
