@@ -2,7 +2,7 @@
 
 UIController::UIController(OLEDDisplayManager& display) : displayManager(display) {}
 
-void UIController::update(PlayerController& player, bool force) {
+void UIController::update(PlayerController& player, bool force, float batteryVoltage) {
     if (!uiEnabled) return;
 
     static unsigned long lastUIUpdate = 0;
@@ -36,7 +36,7 @@ void UIController::update(PlayerController& player, bool force) {
         displayManager.drawVolumeScreen(player.getVolume());
     } else {
         displayManager.getDisplay().clearDisplay();
-        displayManager.drawIcons();
+        displayManager.drawIcons(batteryVoltage);
         displayManager.drawTime(player.getCurrentTime(), player.getTotalTime());
         displayManager.drawNote();
         displayManager.drawProgressBar(player.getCurrentTime(), player.getTotalTime());

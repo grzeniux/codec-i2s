@@ -9,12 +9,13 @@
 #include <AudioFileSourceSD.h>
 #include <AudioGeneratorMP3.h>
 #include "MP3InfoExtractor.h"
+#include "BatteryMonitor.h"
 
 class MP3PlayerApp {
 public:
-    MP3PlayerApp(ButtonManager& buttons, OLEDDisplayManager& display, SDCardManager& sd, PlayerController& player, UIController& ui);
+    MP3PlayerApp(ButtonManager& buttons, OLEDDisplayManager& display, SDCardManager& sd, PlayerController& player, UIController& ui, BatteryMonitor& battery);
     void setup();
-    void loop();
+    void loop(float batteryVoltage);
 
 private:
     ButtonManager& buttons;
@@ -26,6 +27,11 @@ private:
     unsigned long lastUpdate = 0;
     const unsigned long LOOP_DELAY = 20;
     bool isPaused = false;
+
+    BatteryMonitor& battery;
+    float lastBatteryVoltage = 0.0;
+    unsigned long lastBatteryCheck = 0;
+    static constexpr unsigned long BATTERY_UPDATE_INTERVAL = 10000; // 10s
 };
 
 #endif

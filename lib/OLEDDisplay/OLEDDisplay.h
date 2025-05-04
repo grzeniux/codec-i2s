@@ -8,10 +8,9 @@ class OLEDDisplayManager {
 public:
     OLEDDisplayManager(Adafruit_SSD1306& disp);
     Adafruit_SSD1306& getDisplay();
-
-    void drawMainScreen(const char* songTitle, int currentTime, int totalTime, bool isPlaying);
+    void drawMainScreen(const char* songTitle, int currentTime, int totalTime, bool isPlaying, float batteryVoltage);
     void drawVolumeScreen(int volumeLevel);
-    void drawIcons();
+    void drawIcons(float batteryVoltage);
     void drawNote();
     void drawTime(int currentTime, int totalTime);
     void drawProgressBar(int currentTime, int totalTime);

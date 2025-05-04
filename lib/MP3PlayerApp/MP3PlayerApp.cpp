@@ -7,8 +7,8 @@ static bool uiEnabled = true;
 
 
 
-MP3PlayerApp::MP3PlayerApp(ButtonManager& buttons, OLEDDisplayManager& display, SDCardManager& sd, PlayerController& player, UIController& ui)
-    : buttons(buttons), displayManager(display), sdManager(sd), player(player), ui(ui) {}
+MP3PlayerApp::MP3PlayerApp(ButtonManager& buttons, OLEDDisplayManager& display, SDCardManager& sd, PlayerController& player, UIController& ui, BatteryMonitor& battery)
+    : buttons(buttons), displayManager(display), sdManager(sd), player(player), ui(ui), battery(battery) {}
 
 void MP3PlayerApp::setup() {
     Serial.begin(115200);
@@ -37,28 +37,31 @@ void MP3PlayerApp::setup() {
     mp3 = new AudioGeneratorMP3();
     if (!mp3->begin(file, out)) {
         Serial.println("MP3 begin failed");
-        delete file;
-        delete mp3;
-        file = nullptr;
-        mp3 = nullptr;
+        if (file) { delete file; file = nullptr; }
+        if (mp3) { delete mp3; mp3 = nullptr; }
     }
 }
 
-
-
-void MP3PlayerApp::loop() {
+void MP3PlayerApp::loop(float batteryVoltage) {
     // Jeśli MP3 aktywny i gra – wywołuj loop()
     if (mp3 && mp3->isRunning()) {
         if (player.isPlaying() && !isPaused) {
             if (!mp3->loop()) {
                 // Auto-next
-                mp3->stop();
-                delete mp3; mp3 = nullptr;
-                delete file; file = nullptr;
+                if (mp3) {
+                    mp3->stop();
+                    delete mp3;
+                    mp3 = nullptr;
+                }
+                if (file) {
+                    delete file;
+                    file = nullptr;
+                }
+                
 
                 sdManager.nextTrack();
                 player.updateTrackInfo();
-                ui.update(player, true);
+                ui.update(player, true, lastBatteryVoltage);
 
                 ui.setUiEnabled(false);
                 String filename = sdManager.getCurrentTrack();
@@ -69,8 +72,8 @@ void MP3PlayerApp::loop() {
                 mp3 = new AudioGeneratorMP3();
 
                 if (!file->isOpen() || !mp3->begin(file, out)) {
-                    delete file; file = nullptr;
-                    delete mp3; mp3 = nullptr;
+                    if (file) { delete file; file = nullptr; }
+                    if (mp3) { delete mp3; mp3 = nullptr; } 
                 }
                 ui.setUiEnabled(true);
             }
@@ -89,7 +92,7 @@ void MP3PlayerApp::loop() {
     // Jeśli nie ma aktywnego MP3, ale play naciśnięte → start
     if (!mp3 && player.isPlaying()) {
         ui.setUiEnabled(false);
-        ui.update(player, true);
+        ui.update(player, true, lastBatteryVoltage);
 
         String filename = sdManager.getCurrentTrack();
         String path = "/" + filename;
@@ -99,10 +102,8 @@ void MP3PlayerApp::loop() {
         mp3 = new AudioGeneratorMP3();
 
         if (!file->isOpen() || !mp3->begin(file, out)) {
-            delete file;
-            delete mp3;
-            file = nullptr;
-            mp3 = nullptr;
+            if (file) { delete file; file = nullptr; }
+            if (mp3) { delete mp3; mp3 = nullptr; }
         }
         ui.setUiEnabled(true);
     }
@@ -122,8 +123,13 @@ void MP3PlayerApp::loop() {
         lastTrack = current;
     }
 
+    if (millis() - lastBatteryCheck >= BATTERY_UPDATE_INTERVAL) {
+        lastBatteryVoltage = battery.readVoltage();
+        lastBatteryCheck = millis();
+    }
+    
     player.update();
-    ui.update(player);
+    ui.update(player, false, lastBatteryVoltage);  
 }
 
 
