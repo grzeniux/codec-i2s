@@ -5,9 +5,16 @@
 
 class ButtonManager {
 public:
-    ButtonManager(uint8_t playPausePin, uint8_t prevTrackPin, uint8_t nextTrackPin, uint8_t volUpPin, uint8_t volDownPin);
+    ButtonManager(uint8_t playPausePin,
+                  uint8_t prevTrackPin,
+                  uint8_t nextTrackPin,
+                  uint8_t volUpPin,
+                  uint8_t volDownPin);
+
+    // Obsługa cykliczna
     void update();
 
+    // Zapytania o kliknięcia
     bool wasPlayPausePressed();
     bool wasPrevTrackPressed();
     bool wasNextTrackPressed();
@@ -15,9 +22,26 @@ public:
     bool wasVolDownPressed();
 
 private:
-    uint8_t pinPlayPause, pinPrevTrack, pinNextTrack, pinVolUp, pinVolDown;
-    bool lastPlayPauseState, lastPrevTrackState, lastNextTrackState, lastVolUpState, lastVolDownState;
-    bool playPausePressed, prevTrackPressed, nextTrackPressed, volUpPressed, volDownPressed;
+    // Piny
+    uint8_t pinPlayPause;
+    uint8_t pinPrevTrack;
+    uint8_t pinNextTrack;
+    uint8_t pinVolUp;
+    uint8_t pinVolDown;
+
+    // Poprzednie stany
+    bool lastPlayPauseState;
+    bool lastPrevTrackState;
+    bool lastNextTrackState;
+    bool lastVolUpState;
+    bool lastVolDownState;
+
+    // Flagi kliknięć
+    bool playPausePressed;
+    bool prevTrackPressed;
+    bool nextTrackPressed;
+    bool volUpPressed;
+    bool volDownPressed;
 };
 
-#endif
+#endif // BUTTONS_H

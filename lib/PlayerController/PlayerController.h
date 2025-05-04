@@ -2,51 +2,61 @@
 #define PLAYER_CONTROLLER_H
 
 #include <Arduino.h>
+#include <AudioOutputI2S.h>
+
 #include "Buttons.h"
 #include "SDCard.h"
-#include <AudioOutputI2S.h>
 
 class PlayerController {
 public:
     PlayerController(SDCardManager& sd);
+
     void handleInput(ButtonManager& buttons);
     void update();
-    void clearVolumeChangedFlag();
-    void setPlay(bool play);
     void updateTrackInfo();
 
+    // Ustawienia
+    void setPlay(bool play);
+    void clearVolumeChangedFlag();
+
+    // Zapytania o stan
+    bool isPlaying() const;
+    bool wasVolumeChanged() const;
+    bool isPlayClicked() const;
+    bool isNextClicked() const;
+    bool isPrevClicked() const;
+
+    // Dane do UI
     int getCurrentTime() const;
     int getTotalTime() const;
     int getVolume() const;
-
-    bool isPlayClicked();
-    bool isNextClicked();
-    bool isPrevClicked();
-    bool wasVolumeChanged();
-    bool isPlaying() const;
-
     String getCurrentSongTitle() const;
 
 private:
     SDCardManager& sdManager;
-    int volumeLevel = 5;
+
+    // Stan odtwarzania
+    bool playing = true;
+    bool volumeChanged = false;
+    int volumeLevel = 4;
     int currentTime = 0;
     int totalTime = 0;
 
-    unsigned long lastSecondUpdate = 0;
-    const unsigned long SECOND_INTERVAL = 1000;
-    
-    bool playing = true;
-    bool volumeChanged = false;
+    // Kliknięcia i animacje
     bool playClicked = false;
     bool nextClicked = false;
     bool prevClicked = false;
-
     unsigned long playClickTime = 0;
     unsigned long nextClickTime = 0;
     unsigned long prevClickTime = 0;
-    const unsigned long CLICK_ANIM_DURATION = 200;
+    static constexpr unsigned long CLICK_ANIM_DURATION = 200;
 
+    // Pomiar czasu
+    unsigned long lastSecondUpdate = 0;
+    static constexpr unsigned long SECOND_INTERVAL = 1000;
+
+    int getMP3DurationSeconds(const String& fullPath);
+    String normalizePath(const String& raw);
 };
 
-#endif
+#endif // PLAYER_CONTROLLER_H
