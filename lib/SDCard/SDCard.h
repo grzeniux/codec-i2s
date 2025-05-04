@@ -4,22 +4,25 @@
 #include <Arduino.h>
 #include <SD.h>
 #include <vector>
-#include "MP3InfoExtractor.h"
 
 class SDCardManager {
 public:
     static SDCardManager& getInstance();
+
+    // Inicjalizacja i obsługa karty
     bool begin(uint8_t csPin);
+
+    // Lista i zarządzanie utworami
     std::vector<String> getMp3Files();
     String getCurrentTrack();
     void nextTrack();
     void prevTrack();
-    int getCurrentTrackDuration();
 
 private:
-    SDCardManager() {};
+    SDCardManager() {}
+
     std::vector<String> mp3Files;
     int currentTrackIndex = 0;
 };
 
-#endif
+#endif // SDCARD_H

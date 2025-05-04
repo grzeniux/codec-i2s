@@ -7,20 +7,28 @@
 class UIController {
 public:
     UIController(OLEDDisplayManager& display);
+
+    // Aktualizacja interfejsu
     void update(PlayerController& player, bool force, float batteryVoltage);
+
+    // Włączanie/wyłączanie UI
     void setUiEnabled(bool enabled);
 
 private:
     OLEDDisplayManager& displayManager;
 
+    // Stan UI
+    bool uiEnabled = true;
     bool showVolumeScreen = false;
     unsigned long volumeScreenTimer = 0;
-    const unsigned long VOLUME_SCREEN_TIMEOUT = 1000;
 
+    // Przewijanie tytułu
     int scrollPixelOffset = 0;
     unsigned long lastScrollTime = 0;
-    const unsigned long SCROLL_INTERVAL = 20;
-    bool uiEnabled = true;
+
+    // Stałe konfiguracyjne
+    static constexpr unsigned long VOLUME_SCREEN_TIMEOUT = 1000;
+    static constexpr unsigned long SCROLL_INTERVAL = 20;
 };
 
-#endif
+#endif // UI_CONTROLLER_H

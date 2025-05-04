@@ -52,23 +52,3 @@ void SDCardManager::prevTrack() {
         // Serial.println("Poprzednia piosenka: " + mp3Files[currentTrackIndex]);
     }
 }
-
-int SDCardManager::getCurrentTrackDuration() {
-    if (mp3Files.empty()) return 0;
-
-    String fullPath = "/" + mp3Files[currentTrackIndex];
-    fullPath.trim();
-    
-    while (fullPath.indexOf("  ") >= 0) {
-        fullPath.replace("  ", " ");
-    }
-
-    File f = SD.open(fullPath.c_str());
-    if (!f) {
-        // Serial.println("[DEBUG] SD.open() nie widzi pliku – może coś jeszcze?");
-        return 0;
-    }
-    f.close();
-
-    return MP3InfoExtractor::getMP3DurationSeconds(fullPath.c_str());
-}
