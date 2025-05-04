@@ -35,8 +35,6 @@ void OLEDDisplayManager::drawVolumeScreen(int volumeLevel) {
 }
 
 void OLEDDisplayManager::drawIcons(float batteryVoltage) {
-    display.drawBitmap(86, 0, bluetoothIcon, 8, 12, WHITE);
-
     const unsigned char* batteryIcon;
 
     if (batteryVoltage >= 4.0) {

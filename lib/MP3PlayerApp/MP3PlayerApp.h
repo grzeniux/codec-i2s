@@ -32,6 +32,8 @@ private:
     float lastBatteryVoltage = 0.0;
     unsigned long lastBatteryCheck = 0;
     static constexpr unsigned long BATTERY_UPDATE_INTERVAL = 10000; // 10s
+    void startMP3(String trackName);
+    void stopMP3();
 };
 
 #endif
