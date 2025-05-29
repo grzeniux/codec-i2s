@@ -37,11 +37,11 @@ void setup() {
 
 void loop() {
     app.loop(3.8);
-    static unsigned long lastMem = 0;
-    if (millis() - lastMem > 5000) {
-    lastMem = millis();
-    Serial.printf("[MEM] Free heap: %d\n", ESP.getFreeHeap());
-    }
+    // static unsigned long lastMem = 0;
+    // if (millis() - lastMem > 5000) {
+    // lastMem = millis();
+    // Serial.printf("[MEM] Free heap: %d\n", ESP.getFreeHeap());
+    // }
 
 
 }
