@@ -36,7 +36,7 @@ private:
     SDCardManager& sdManager;
 
     // Stan odtwarzania
-    bool playing = true;
+    bool playing = false;
     bool volumeChanged = false;
     int volumeLevel = 4;
     int currentTime = 0;
