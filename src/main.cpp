@@ -33,6 +33,7 @@ void setup() {
     out->SetOutputModeMono(true);
     app.setup();
     pinMode(33, INPUT);
+    Serial.printf("[LOG] %lu,BOOT_COMPLETE\n", millis());
 }
 
 void loop() {
