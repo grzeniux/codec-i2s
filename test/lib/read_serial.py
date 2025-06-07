@@ -10,6 +10,7 @@ class SerialReaderLibrary:
     @keyword("Open Serial Port")
     def open_serial_port(self, port='COM4', baudrate=115200, timeout=1):
         self.ser = serial.Serial(port, baudrate, timeout=timeout)
+        self.ser.reset_input_buffer()
         print(f"[SerialReader] Opened {port} at {baudrate} baud")
 
     @keyword("Close Serial Port")
@@ -28,4 +29,28 @@ class SerialReaderLibrary:
                 if line:
                     print(f"[SERIAL] {line}")
                     lines.append(line)
+            else:
+                time.sleep(0.01)
         return lines
+
+    @keyword("Verify Log Contains Action")
+    def verify_log_contains_action(self, logs, action):
+        for log in logs:
+            if log.startswith("[LOG]"):
+                fields = log.replace("[LOG] ", "").split(",")
+                if len(fields) >= 7 and fields[6].strip().upper() == action.upper():
+                    return  # Success
+        raise AssertionError(f"Nie znaleziono logu z akcją: {action}")
+
+    @keyword("Verify Log Field Contains")
+    def verify_log_field_contains(self, logs, field_name, index, expected_value):
+        """
+        Sprawdza, czy któryś z logów zawiera wartość `expected_value` w polu o nazwie `field_name` i indeksie `index`.
+        """
+        for log in logs:
+            if log.startswith("[LOG]"):
+                fields = log.replace("[LOG] ", "").split(",")
+                if len(fields) > index and fields[index].strip() == str(expected_value):
+                    print(f"[VERIFY] Znaleziono {field_name} = {expected_value} w logu: {log}")
+                    return
+        raise AssertionError(f"Nie znaleziono logu z {field_name} = {expected_value}")
