@@ -37,7 +37,7 @@ private:
     bool isPaused = false;
 
     // Stałe konfiguracyjne
-    static constexpr unsigned long LOOP_DELAY = 20;
+    static constexpr unsigned long LOOP_DELAY = 10;
     static constexpr unsigned long BATTERY_UPDATE_INTERVAL = 10000; // 10 sekund
 
     // Funkcje pomocnicze
