@@ -54,3 +54,15 @@ class SerialReaderLibrary:
                     print(f"[VERIFY] Znaleziono {field_name} = {expected_value} w logu: {log}")
                     return
         raise AssertionError(f"Nie znaleziono logu z {field_name} = {expected_value}")
+
+    @keyword("Extract Boot Millis From Lines")
+    def extract_boot_millis_from_lines(self, lines):
+        for line in lines:
+            if "[LOG]" in line and "BOOT_COMPLETE" in line:
+                try:
+                    millis_part = line.split(",")[0]
+                    millis = int(millis_part.replace("[LOG]", "").strip())
+                    return millis
+                except:
+                    continue
+        return "NOT_FOUND"

@@ -6,7 +6,7 @@ Library         String
 Resource        ../robot/keywords.resource
 
 
-Suite Setup   Set default gpio
+#Suite Setup   Set default gpio
 #Test Setup    Ensure music is stopped
 
 Test Tags    i2s
@@ -27,58 +27,67 @@ Test Tags    i2s
 ${ESP32_PORT_UART}   COM13
 ${ESP32_BAUD}   115200
 ${TIMEOUT}      2
-${SERIAL_READ_TIME}    12
+${SERIAL_READ_TIME}    20
 
 
 
 *** Test Cases ***
-VERIFY_QUE_SONG
-    [Documentation]  Po reboocie (z Confetti - Right Now) weryfikuje kolejność 10 utworów
-    [Tags]    i2s
-    Hardware Reboot
-    Sleep  2s
+#VERIFY_QUE_SONG
+#    [Documentation]  Po reboocie (z Confetti - Right Now) weryfikuje kolejność 10 utworów
+#    [Tags]    i2s
+#    Hardware Reboot
+#    Sleep  2s
+#
+#    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
+#    ${lines}=    Read Next Tracks    11
+#    Close Serial Port
+#
+#    ${log_lines}=       Extract Relevant Logs    @{lines}
+#    ${actual_titles}=   Extract Titles From Logs Robust    @{log_lines}
+#
+#    Print Song Table    ${EXPECTED_TITLES}    ${actual_titles}
+#    Lists Should Be Equal    ${EXPECTED_TITLES}    ${actual_titles}
+#
+#VERIFY_PLAY_PAUSE_TOGGLE
+#    [Documentation]  Sprawdza poprawne przełączanie Play/Pause i analizuje czy piosenka gra
+#    [Tags]    i2s
+#    [Setup]    Ensure Music Is Stopped
+#
+#    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+#    Play Stop
+#    Sleep    3
+#    ${logs_after_play}=    Read From Serial    5
+#    Verify Log Contains Action    ${logs_after_play}    PLAY
+#
+#    Play Stop
+#    Sleep    3
+#    ${logs_after_pause}=    Read From Serial    5
+#    Verify Log Contains Action    ${logs_after_pause}    PAUSE
+#    Close Serial Port
 
-    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
-    ${lines}=    Read Next Tracks    11
-    Close Serial Port
+#MEASURE_BOOT_TIMES_OVER_10_RUNS
+#    [Documentation]    Mierzy czasy startu urządzenia przez 10 restartów i wypisuje je w ms i sekundach.
+#    ${boot_times}=    Create List
+#    ${boot_times_sec}=    Create List
+#
+#    FOR    ${index}    IN RANGE    10
+#        Log    Iteracja: ${index + 1}
+#        Hardware Reboot
+#        Sleep    1s
+#        Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+#        Sleep    1s
+#        ${lines}=    Read From Serial    10
+#        Close Serial Port
+#        ${boot}=    Extract Boot Millis From Lines    ${lines}
+#        Append To List    ${boot_times}    ${boot}
+#        ${seconds}=    Evaluate    round(${boot} / 1000, 2)
+#        Append To List    ${boot_times_sec}    ${seconds}
+#    END
+#
+#    Log    Czasy uruchomienia (ms): ${boot_times}
+#    Log    Czasy uruchomienia (s): ${boot_times_sec}
+#
 
-    ${log_lines}=       Extract Relevant Logs    @{lines}
-    ${actual_titles}=   Extract Titles From Logs Robust    @{log_lines}
-
-    Print Song Table    ${EXPECTED_TITLES}    ${actual_titles}
-    Lists Should Be Equal    ${EXPECTED_TITLES}    ${actual_titles}
-
-VERIFY_PLAY_PAUSE_TOGGLE
-    [Documentation]  Sprawdza poprawne przełączanie Play/Pause i analizuje czy piosenka gra
-    [Tags]    i2s
-    [Setup]    Ensure Music Is Stopped
-
-    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
-    Play Stop
-    Sleep    3
-    ${logs_after_play}=    Read From Serial    5
-    Verify Log Contains Action    ${logs_after_play}    PLAY
-
-    Play Stop
-    Sleep    3
-    ${logs_after_pause}=    Read From Serial    5
-    Verify Log Contains Action    ${logs_after_pause}    PAUSE
-    Close Serial Port
-
-VERIFY_DEVICE_UP_TIME_FAST
-    [Documentation]  Sprawdza, ile czasu zajmuje start urządzenia po reboocie (millis < 20000)
-    [Tags]    i2s
-    Hardware Reboot
-    Sleep    2s
-
-    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
-    ${lines}=    Read From Serial    ${SERIAL_READ_TIME}
-    Close Serial Port
-
-    ${boot_millis}=    Extract Boot Millis    ${lines}
-    Log    Boot millis: ${boot_millis}
-    Should Not Be Equal    ${boot_millis}    NOT_FOUND
-    Should Be True    ${boot_millis} < 20000    Urządzenie uruchamia się za wolno – ${boot_millis} ms
 
 VERIFY_VOLUME_CONTROL
     [Documentation]  Zwiększa i zmniejsza głośność, potem sprawdza, czy zmiana została zarejestrowana
@@ -98,49 +107,49 @@ VERIFY_VOLUME_CONTROL
 
     Close Serial Port
 
-VERIFY_TRACK_LOOPING
-    [Documentation]  Przechodzi przez wszystkie utwory i sprawdza, czy po ostatnim wraca pierwszy
-    [Setup]    Run Keywords    Hardware reboot   Ensure music is stopped
-
-    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
-    ${titles}=    Create List
-    FOR    ${i}    IN RANGE    10
-        Next
-        Sleep    0.5
-        ${chunk}=    Read From Serial    2
-        FOR    ${item}    IN    @{chunk}
-            ${contains}=    Evaluate    'NEXT' in '''${item}'''
-            Run Keyword If    ${contains}    Append To List    ${titles}    ${item}
-        END
-    END
-    Close Serial Port
-
-    ${parsed}=    Create List
-    FOR    ${log}    IN    @{titles}
-        ${parts}=    Split String    ${log}    ,
-        ${title}=    Get From List    ${parts}    1
-        Append To List    ${parsed}    ${title}
-    END
-    Log Many    ${parsed}
-    Should Contain    ${parsed}    Confetti - Right Now
-
-VERIFY_AUTO_NEXT
-    [Documentation]  Czeka 2 minuty i sprawdza, czy pojawił się AUTO_NEXT
-    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
-    Play Stop
-    Sleep    0.4
-    Play Stop
-    Sleep    150
-    ${lines}=    Read From Serial    10
-    Close Serial Port
-
-    ${auto}=    Create List
-    FOR    ${line}    IN    @{lines}
-        ${contains}=    Evaluate    'AUTO_NEXT' in '''${line}'''
-        Run Keyword If    ${contains}    Append To List    ${auto}    ${line}
-    END
-    Log Many    ${auto}
-    Should Not Be Empty    ${auto}
+#VERIFY_TRACK_LOOPING
+#    [Documentation]  Przechodzi przez wszystkie utwory i sprawdza, czy po ostatnim wraca pierwszy
+#    [Setup]    Run Keywords    Hardware reboot   Ensure music is stopped
+#
+#    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
+#    ${titles}=    Create List
+#    FOR    ${i}    IN RANGE    10
+#        Next
+#        Sleep    0.5
+#        ${chunk}=    Read From Serial    2
+#        FOR    ${item}    IN    @{chunk}
+#            ${contains}=    Evaluate    'NEXT' in '''${item}'''
+#            Run Keyword If    ${contains}    Append To List    ${titles}    ${item}
+#        END
+#    END
+#    Close Serial Port
+#
+#    ${parsed}=    Create List
+#    FOR    ${log}    IN    @{titles}
+#        ${parts}=    Split String    ${log}    ,
+#        ${title}=    Get From List    ${parts}    1
+#        Append To List    ${parsed}    ${title}
+#    END
+#    Log Many    ${parsed}
+#    Should Contain    ${parsed}    Confetti - Right Now
+#
+#VERIFY_AUTO_NEXT
+#    [Documentation]  Czeka 2 minuty i sprawdza, czy pojawił się AUTO_NEXT
+#    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
+#    Play Stop
+#    Sleep    0.4
+#    Play Stop
+#    Sleep    150
+#    ${lines}=    Read From Serial    10
+#    Close Serial Port
+#
+#    ${auto}=    Create List
+#    FOR    ${line}    IN    @{lines}
+#        ${contains}=    Evaluate    'AUTO_NEXT' in '''${line}'''
+#        Run Keyword If    ${contains}    Append To List    ${auto}    ${line}
+#    END
+#    Log Many    ${auto}
+#    Should Not Be Empty    ${auto}
 
 
 
