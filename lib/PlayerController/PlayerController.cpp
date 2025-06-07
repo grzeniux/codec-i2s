@@ -2,9 +2,10 @@
 
 extern AudioOutputI2S* out;
 
-PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd) {
+PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd), playing(false) {
     updateTrackInfo();
 }
+
 
 void logTrackChange(const String& songTitle, int currentTime, int totalTime, bool isPlaying, int volume, const String& action) {
     Serial.printf("[LOG] %lu,%s,%d,%d,%d,%d,%s\n",
@@ -22,10 +23,12 @@ void PlayerController::handleInput(ButtonManager& buttons) {
     if (buttons.wasVolUpPressed() && volumeLevel < 10) {
         volumeLevel++;
         volumeChanged = true;
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "VOL_UP");
     }
     if (buttons.wasVolDownPressed() && volumeLevel > 0) {
         volumeLevel--;
         volumeChanged = true;
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "VOL_DOWN");
     }
 
     unsigned long now = millis();
