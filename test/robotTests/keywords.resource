@@ -84,3 +84,4 @@ Hardware reboot
     Cut off power from device
     Sleep    3s
     Power up device
+    Sleep    2s

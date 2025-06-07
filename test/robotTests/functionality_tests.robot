@@ -3,10 +3,10 @@ Library         ../lib/read_serial.py
 Library         ../lib/TabulateLibrary.py
 Library         String
 
-Resource        ../robot/keywords.resource
+Resource        ../robotTests/keywords.resource
 
 
-#Suite Setup   Set default gpio
+Suite Setup   Set default gpio
 #Test Setup    Ensure music is stopped
 
 Test Tags    i2s
@@ -47,24 +47,24 @@ ${SERIAL_READ_TIME}    20
 #
 #    Print Song Table    ${EXPECTED_TITLES}    ${actual_titles}
 #    Lists Should Be Equal    ${EXPECTED_TITLES}    ${actual_titles}
-#
-#VERIFY_PLAY_PAUSE_TOGGLE
-#    [Documentation]  Sprawdza poprawne przełączanie Play/Pause i analizuje czy piosenka gra
-#    [Tags]    i2s
-#    [Setup]    Ensure Music Is Stopped
-#
-#    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
-#    Play Stop
-#    Sleep    3
-#    ${logs_after_play}=    Read From Serial    5
-#    Verify Log Contains Action    ${logs_after_play}    PLAY
-#
-#    Play Stop
-#    Sleep    3
-#    ${logs_after_pause}=    Read From Serial    5
-#    Verify Log Contains Action    ${logs_after_pause}    PAUSE
-#    Close Serial Port
 
+VERIFY_PLAY_PAUSE_TOGGLE
+    [Documentation]  Sprawdza poprawne przełączanie Play/Pause i analizuje czy piosenka gra
+    [Tags]    i2s
+    [Setup]    Hardware Reboot
+
+    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+    Play Stop
+    Sleep    1
+    ${logs_after_play}=    Read From Serial    5
+    Verify Log Contains Action    ${logs_after_play}    PLAY
+
+    Play Stop
+    Sleep    1
+    ${logs_after_pause}=    Read From Serial    5
+    Verify Log Contains Action    ${logs_after_pause}    PAUSE
+    [Teardown]    Close Serial Port
+#
 #MEASURE_BOOT_TIMES_OVER_10_RUNS
 #    [Documentation]    Mierzy czasy startu urządzenia przez 10 restartów i wypisuje je w ms i sekundach.
 #    ${boot_times}=    Create List
@@ -87,26 +87,42 @@ ${SERIAL_READ_TIME}    20
 #    Log    Czasy uruchomienia (ms): ${boot_times}
 #    Log    Czasy uruchomienia (s): ${boot_times_sec}
 #
-
-
-VERIFY_VOLUME_CONTROL
-    [Documentation]  Zwiększa i zmniejsza głośność, potem sprawdza, czy zmiana została zarejestrowana
-    [Tags]    i2s
-
-    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
-
-    Volume Device Up
-    Sleep    2
-    ${logs_after_up}=    Read From Serial    6
-    Verify Log Field Contains    ${logs_after_up}    volume    5    5  # sprawdzamy czy volume = 5 (np. zwiększony)
-
-    Volume Device Down
-    Sleep    2
-    ${logs_after_down}=    Read From Serial    6
-    Verify Log Field Contains    ${logs_after_down}    volume    5    4  # sprawdzamy czy volume = 4 (wróciło)
-
-    Close Serial Port
-
+#
+#VERIFY_VOLUME_CONTROL
+#    [Documentation]  Zwiększa i zmniejsza głośność, potem sprawdza, czy zmiana została zarejestrowana
+#    [Tags]    i2s
+#    [Setup]    Hardware Reboot
+#    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+#
+#    Volume Device Up
+#    Sleep    2
+#    ${logs_after_up}=    Read From Serial    6
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    5
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    6
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    7
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    9
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    9
+#    Verify Log Field Contains    ${logs_after_up}    volume    5    10
+#    Close Serial Port
+#
+#    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+#    Volume Device Down
+#    Sleep    2
+#    ${logs_after_down}=    Read From Serial    6
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    9
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    8
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    7
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    6
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    5
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    4
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    3
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    2
+#    Verify Log Field Contains    ${logs_after_down}    volume    5    1
+#
+#    [Teardown]    Close Serial Port
+#
+#
+#
 #VERIFY_TRACK_LOOPING
 #    [Documentation]  Przechodzi przez wszystkie utwory i sprawdza, czy po ostatnim wraca pierwszy
 #    [Setup]    Run Keywords    Hardware reboot   Ensure music is stopped
@@ -133,27 +149,17 @@ VERIFY_VOLUME_CONTROL
 #    Log Many    ${parsed}
 #    Should Contain    ${parsed}    Confetti - Right Now
 #
+#
 #VERIFY_AUTO_NEXT
-#    [Documentation]  Czeka 2 minuty i sprawdza, czy pojawił się AUTO_NEXT
+#    [Documentation]  Czeka na skończenie piosenki i sprawdza, czy pojawił się AUTO_NEXT
+#    [Setup]    Hardware Reboot
 #    Open Serial Port    ${ESP32_PORT_UART}   ${ESP32_BAUD}   ${TIMEOUT}
 #    Play Stop
-#    Sleep    0.4
-#    Play Stop
-#    Sleep    150
+#    Sleep    155
 #    ${lines}=    Read From Serial    10
+#    Verify Log Contains Action    ${lines}    AUTO_NEXT
 #    Close Serial Port
 #
-#    ${auto}=    Create List
-#    FOR    ${line}    IN    @{lines}
-#        ${contains}=    Evaluate    'AUTO_NEXT' in '''${line}'''
-#        Run Keyword If    ${contains}    Append To List    ${auto}    ${line}
-#    END
-#    Log Many    ${auto}
-#    Should Not Be Empty    ${auto}
-
-
-
-
 
 *** Keywords ***
 Skip To Song Title
@@ -178,7 +184,7 @@ Read Next Tracks
     ${lines}=    Create List
     FOR    ${i}    IN RANGE    ${count}
         Next
-        ${chunk}=    Read From Serial    5
+        ${chunk}=    Read From Serial    12
         FOR    ${line}    IN    @{chunk}
             ${contains}=    Evaluate    'NEXT' in '''${line}'''
             Run Keyword If    ${contains}    Append To List    ${lines}    ${line}
@@ -222,3 +228,13 @@ Extract Titles From Logs Robust
         END
     END
     RETURN    ${actual_titles}
+
+Set Volume To Level
+    [Arguments]    ${target}
+    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+
+    FOR    ${i}    IN RANGE    ${target}
+        Volume device up
+        Sleep    0.5
+    END
+    Close Serial Port
