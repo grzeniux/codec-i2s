@@ -3,3 +3,19 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+
+# Python pycache
+__pycache__/
+*.pyc
+
+# Robot test artifacts
+*.xml
+*.html
+*.log
+
+# IDE folders
+.idea/
+
+
+test/run_tests_venv/*
+!test/run_tests_venv/req.txt
