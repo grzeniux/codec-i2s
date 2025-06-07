@@ -44,9 +44,7 @@ class SerialReaderLibrary:
 
     @keyword("Verify Log Field Contains")
     def verify_log_field_contains(self, logs, field_name, index, expected_value):
-        """
-        Sprawdza, czy któryś z logów zawiera wartość `expected_value` w polu o nazwie `field_name` i indeksie `index`.
-        """
+        index = int(index)
         for log in logs:
             if log.startswith("[LOG]"):
                 fields = log.replace("[LOG] ", "").split(",")
@@ -66,3 +64,13 @@ class SerialReaderLibrary:
                 except:
                     continue
         return "NOT_FOUND"
+
+    @keyword("Extract Fields From Logs Matching")
+    def extract_fields_from_logs_matching(self, logs, index, keyword_match):
+        results = []
+        for line in logs:
+            if keyword_match in line:
+                fields = line.split(",")
+                if len(fields) > index:
+                    results.append(fields[index].strip())
+        return results
