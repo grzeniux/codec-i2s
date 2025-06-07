@@ -2,7 +2,7 @@
 
 extern AudioOutputI2S* out;
 
-PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd), playing(false) {
+PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd){
     updateTrackInfo();
 }
 
