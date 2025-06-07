@@ -33,15 +33,16 @@ void setup() {
     out->SetOutputModeMono(true);
     app.setup();
     pinMode(33, INPUT);
+    Serial.printf("[LOG] %lu,BOOT_COMPLETE\n", millis());
 }
 
 void loop() {
     app.loop(3.8);
-    static unsigned long lastMem = 0;
-    if (millis() - lastMem > 5000) {
-    lastMem = millis();
-    Serial.printf("[MEM] Free heap: %d\n", ESP.getFreeHeap());
-    }
+    // static unsigned long lastMem = 0;
+    // if (millis() - lastMem > 5000) {
+    // lastMem = millis();
+    // Serial.printf("[MEM] Free heap: %d\n", ESP.getFreeHeap());
+    // }
 
 
 }
