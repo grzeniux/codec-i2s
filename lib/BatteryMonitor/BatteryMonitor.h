@@ -13,6 +13,5 @@ private:
     float _r2;
     float _vref;
 
-    // Rozdzielczość ADC (12-bit dla ESP32)
     static constexpr float ADC_RESOLUTION = 4095.0;
 };

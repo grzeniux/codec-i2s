@@ -42,13 +42,11 @@ String SDCardManager::getCurrentTrack() {
 void SDCardManager::nextTrack() {
     if (!mp3Files.empty()) {
         currentTrackIndex = (currentTrackIndex + 1) % mp3Files.size();
-        // Serial.println("Następna piosenka: " + mp3Files[currentTrackIndex]);
     }
 }
 
 void SDCardManager::prevTrack() {
     if (!mp3Files.empty()) {
         currentTrackIndex = (currentTrackIndex - 1 + mp3Files.size()) % mp3Files.size();
-        // Serial.println("Poprzednia piosenka: " + mp3Files[currentTrackIndex]);
     }
 }
