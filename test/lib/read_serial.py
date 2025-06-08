@@ -74,3 +74,20 @@ class SerialReaderLibrary:
                 if len(fields) > index:
                     results.append(fields[index].strip())
         return results
+
+    @keyword("Extract Unique Titles From Logs")
+    def extract_unique_titles_from_logs(self, logs):
+        seen = set()
+        titles = []
+        for line in logs:
+            if "[LOG]" in line and "NEXT" in line:
+                try:
+                    fields = line.replace("[LOG] ", "").split(",")
+                    title = fields[1].strip()
+                    if title not in seen:
+                        seen.add(title)
+                        titles.append(title)
+                except:
+                    continue
+        return titles
+

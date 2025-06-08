@@ -29,31 +29,31 @@ Power up device
     Set Gpio State    ${PWR_RELAY}    0
 
 Prev
-    Set Gpio State    ${PREV}    1
-    Sleep             0.3
     Set Gpio State    ${PREV}    0
+    Sleep             0.3
+    Set Gpio State    ${PREV}    1
 
 Next
-    Set gpio state    ${NEXT}      1
-    Sleep             0.3
     Set gpio state    ${NEXT}      0
-    Sleep             0.3
+    Sleep             0.7
+    Set gpio state    ${NEXT}      1
+    Sleep             0.7
 
 Play Stop
-    Set gpio state    ${PLAY_STOP}      1
-    Sleep             0.5
     Set gpio state    ${PLAY_STOP}      0
-
-Volume UP
-    Set gpio state    ${VOL_UP}      1
     Sleep             0.5
+    Set gpio state    ${PLAY_STOP}      1
+    
+Volume UP
     Set gpio state    ${VOL_UP}      0
+    Sleep             0.5
+    Set gpio state    ${VOL_UP}      1
     Sleep             0.5
 
 Volume DOWN
-    Set gpio state    ${VOL_DOWN}    1
-    Sleep             0.5
     Set gpio state    ${VOL_DOWN}    0
+    Sleep             0.5
+    Set gpio state    ${VOL_DOWN}    1
     Sleep             0.5
 
 Volume device up
@@ -66,7 +66,7 @@ Volume device down
         Volume DOWN
     END
 
-Ensure Music Is Stopped
+Ensure music is stopped
     [Documentation]  Zatrzymuje muzykę jeśli nadal gra
     Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
     Play Stop
@@ -78,6 +78,19 @@ Ensure Music Is Stopped
     ${last_line}=    Run Keyword If    ${lines}    Get From List    ${lines}    -1
     ${is_music_playing}=    Run Keyword If    ${lines}    Evaluate    '${last_line}'.split(',')[4].strip() == '1'
     Run Keyword If    '${is_music_playing}' == 'True'    Play Stop
+
+Ensure music is playing
+    [Documentation]  Uruchamia muzykę, jeśli nie gra
+    Open Serial Port    ${ESP32_PORT_UART}    ${ESP32_BAUD}    ${TIMEOUT}
+    Play Stop
+    Sleep    1
+    ${lines}=    Read From Serial    5
+    Close Serial Port
+
+    Run Keyword Unless    ${lines}    Log    "Brak danych z seriala – pomijam analizę stanu muzyki"    WARN
+    ${last_line}=    Run Keyword If    ${lines}    Get From List    ${lines}    -1
+    ${is_music_playing}=    Run Keyword If    ${lines}    Evaluate    '${last_line}'.split(',')[4].strip() == '1'
+    Run Keyword If    '${is_music_playing}' == 'False'    Play Stop
 
 
 Hardware reboot
