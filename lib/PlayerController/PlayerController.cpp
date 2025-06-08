@@ -2,18 +2,33 @@
 
 extern AudioOutputI2S* out;
 
-PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd) {
+PlayerController::PlayerController(SDCardManager& sd) : sdManager(sd){
     updateTrackInfo();
 }
+
+
+void logTrackChange(const String& songTitle, int currentTime, int totalTime, bool isPlaying, int volume, const String& action) {
+    Serial.printf("[LOG] %lu,%s,%d,%d,%d,%d,%s\n",
+        millis(),
+        songTitle.c_str(),
+        currentTime,
+        totalTime,
+        isPlaying ? 1 : 0,
+        volume,
+        action.c_str());
+}
+
 
 void PlayerController::handleInput(ButtonManager& buttons) {
     if (buttons.wasVolUpPressed() && volumeLevel < 10) {
         volumeLevel++;
         volumeChanged = true;
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "VOL_UP");
     }
     if (buttons.wasVolDownPressed() && volumeLevel > 0) {
         volumeLevel--;
         volumeChanged = true;
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "VOL_DOWN");
     }
 
     unsigned long now = millis();
@@ -22,19 +37,24 @@ void PlayerController::handleInput(ButtonManager& buttons) {
         playing = !playing;
         playClicked = true;
         playClickTime = now;
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), playing, getVolume(), playing ? "PLAY" : "PAUSE");
     }
     if (buttons.wasNextTrackPressed()) {
         sdManager.nextTrack();
         updateTrackInfo();
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "NEXT");
         nextClicked = true;
         nextClickTime = now;
     }
+
     if (buttons.wasPrevTrackPressed()) {
         sdManager.prevTrack();
         updateTrackInfo();
+        logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "PREV");
         prevClicked = true;
         prevClickTime = now;
     }
+
 }
 
 void PlayerController::update() {
@@ -48,8 +68,8 @@ void PlayerController::update() {
         } else if (playing && currentTime >= totalTime) {
             sdManager.nextTrack();
             updateTrackInfo();
+            logTrackChange(getCurrentSongTitle(), getCurrentTime(), getTotalTime(), isPlaying(), getVolume(), "AUTO_NEXT");
         }
-
         float gain = volumeLevel / 10.0f;
         out->SetGain(gain);
     }
@@ -107,6 +127,6 @@ int PlayerController::getMP3DurationSeconds(const String& fullPath) {
     int fileSize = file.size();
     file.close();
     int duration = (fileSize * 8) / DEFAULT_BITRATE;
-    Serial.printf("[MP3] size=%dB → duration=%ds (szacowane @192kbps)\n", fileSize, duration);
+    // Serial.printf("[MP3] size=%dB → duration=%ds (szacowane @192kbps)\n", fileSize, duration);
     return duration > 0 ? duration : 10;
 }

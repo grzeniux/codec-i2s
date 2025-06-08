@@ -1,0 +1,3516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.12.4 on win32)" generated="2025-06-08T11:12:42.849259" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\grzen\Documents\_Studia\mgr-sem1\Sensory\Project\codec-i2s\test">
+<suite id="s1-s1" name="robotTests" source="C:\Users\grzen\Documents\_Studia\mgr-sem1\Sensory\Project\codec-i2s\test\robotTests">
+<suite id="s1-s1-s1" name="Functionality Tests" source="C:\Users\grzen\Documents\_Studia\mgr-sem1\Sensory\Project\codec-i2s\test\robotTests\functionality_tests.robot">
+<kw name="Set default gpio" owner="keywords" type="SETUP">
+<msg time="2025-06-08T11:12:42.950938" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.951925" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:12:42.951925" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:12:42.950938" elapsed="0.000987"/>
+</kw>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.952928" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.953272" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.951925" elapsed="0.001347"/>
+</kw>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.953272" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.953272" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.953272" elapsed="0.000000"/>
+</kw>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.954372" level="TRACE">Arguments: [ '10' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.954372" level="TRACE">Return: None</msg>
+<arg>${NEXT}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.954372" elapsed="0.000654"/>
+</kw>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.955026" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.955584" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.955026" elapsed="0.000558"/>
+</kw>
+<kw name="Set Gpio As Output" owner="pico">
+<msg time="2025-06-08T11:12:42.955584" level="TRACE">Arguments: [ '8' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.955584" level="TRACE">Return: None</msg>
+<arg>${PREV}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.955584" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:42.956594" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:42.950938" elapsed="0.005656"/>
+</kw>
+<test id="s1-s1-s1-t1" name="VERIFY_AUTO_NEXT" line="21">
+<kw name="Hardware reboot" owner="keywords" type="SETUP">
+<msg time="2025-06-08T11:12:42.956594" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:12:42.957646" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:42.957646" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:12:42.957646" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:42.957646" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:42.957646" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:42.956594" elapsed="0.001052"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:42.957646" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:12:45.958974" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:12:45.958974" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:42.957646" elapsed="3.001328"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:12:45.958974" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:45.958974" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:12:45.959983" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:12:45.958974" elapsed="0.001009"/>
+</kw>
+<msg time="2025-06-08T11:12:45.959983" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:45.958974" elapsed="0.001009"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:45.959983" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:12:47.960557" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:12:47.960557" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:45.959983" elapsed="2.000574"/>
+</kw>
+<msg time="2025-06-08T11:12:47.960557" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:42.956594" elapsed="5.003963"/>
+</kw>
+<kw name="Ensure music is playing" owner="keywords">
+<msg time="2025-06-08T11:12:47.960557" level="TRACE">Arguments: [  ]</msg>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:12:47.961569" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:12:47.981138" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:12:47.981138" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:12:47.961569" elapsed="0.019569"/>
+</kw>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:12:47.981138" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:47.981138" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:12:47.982148" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:12:47.981138" elapsed="0.001010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:47.982148" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:12:48.482569" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:12:48.482569" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:47.982148" elapsed="0.500421"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:48.482569" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:12:48.482569" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:48.482569" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:48.483682" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:47.981138" elapsed="0.502544"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:48.483682" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:12:49.484207" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:12:49.484207" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:48.483682" elapsed="1.000525"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:12:49.484207" level="TRACE">Arguments: [ 5 ]</msg>
+<msg time="2025-06-08T11:12:54.489860" level="INFO">[SERIAL] [LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE</msg>
+<msg time="2025-06-08T11:12:54.489860" level="TRACE">Return: ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<msg time="2025-06-08T11:12:54.489860" level="INFO">${lines} = ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<var>${lines}</var>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:12:49.484207" elapsed="5.005653"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:12:54.489860" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:12:54.604608" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:12:54.604608" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:54.489860" elapsed="0.114748"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Log' | '"Brak danych z seriala – pomijam analizę stanu muzyki"' | 'WARN' ]</msg>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: None</msg>
+<arg>${lines}</arg>
+<arg>Log</arg>
+<arg>"Brak danych z seriala – pomijam analizę stanu muzyki"</arg>
+<arg>WARN</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Get From List' | '${lines}' | '-1' ]</msg>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | '-1' ]</msg>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: '[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'</msg>
+<arg>${lines}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: '[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'</msg>
+<msg time="2025-06-08T11:12:54.605117" level="INFO">${last_line} = [LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE</msg>
+<var>${last_line}</var>
+<arg>${lines}</arg>
+<arg>Get From List</arg>
+<arg>${lines}</arg>
+<arg>-1</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Evaluate' | "'${last_line}'.split(',')[4].strip() == '1'" ]</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ "'[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'.split(',')[4].strip() == '1'" ]</msg>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: False</msg>
+<arg>'${last_line}'.split(',')[4].strip() == '1'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: False</msg>
+<msg time="2025-06-08T11:12:54.605117" level="INFO">${is_music_playing} = False</msg>
+<var>${is_music_playing}</var>
+<arg>${lines}</arg>
+<arg>Evaluate</arg>
+<arg>'${last_line}'.split(',')[4].strip() == '1'</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ "'False' == 'False'" | 'Play Stop' ]</msg>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:54.605117" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:12:55.105719" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.500602"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:12:55.105719" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.500602"/>
+</kw>
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Return: None</msg>
+<arg>'${is_music_playing}' == 'False'</arg>
+<arg>Play Stop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:12:54.605117" elapsed="0.500602"/>
+</kw>
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Return: None</msg>
+<doc>Uruchamia muzykę, jeśli nie gra</doc>
+<status status="PASS" start="2025-06-08T11:12:47.960557" elapsed="7.145162"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:12:55.105719" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:12:55.125895" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:12:55.125895" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:12:55.105719" elapsed="0.020176"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:12:55.125895" level="TRACE">Arguments: [ '157' ]</msg>
+<msg time="2025-06-08T11:15:32.126312" level="INFO">Slept 2 minutes 37 seconds.</msg>
+<msg time="2025-06-08T11:15:32.126312" level="TRACE">Return: None</msg>
+<arg>157</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:12:55.125895" elapsed="157.000417"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:15:32.126312" level="TRACE">Arguments: [ 3 ]</msg>
+<msg time="2025-06-08T11:15:35.127668" level="INFO">[SERIAL] [LOG] 162067,Connor Kauffman - Bleed,0,145,1,4,AUTO_NEXT</msg>
+<msg time="2025-06-08T11:15:35.127668" level="TRACE">Return: ['[LOG] 162067,Connor Kauffman - Bleed,0,145,1,4,AUTO_NEXT']</msg>
+<msg time="2025-06-08T11:15:35.127668" level="INFO">${lines} = ['[LOG] 162067,Connor Kauffman - Bleed,0,145,1,4,AUTO_NEXT']</msg>
+<var>${lines}</var>
+<arg>3</arg>
+<status status="PASS" start="2025-06-08T11:15:32.126312" elapsed="3.001356"/>
+</kw>
+<kw name="Verify Log Contains Action" owner="read_serial">
+<msg time="2025-06-08T11:15:35.128287" level="TRACE">Arguments: [ ['[LOG] 162067,Connor Kauffman - Bleed,0,145,1,4,AUTO_NEXT'] | 'AUTO_NEXT' ]</msg>
+<msg time="2025-06-08T11:15:35.128287" level="TRACE">Return: None</msg>
+<arg>${lines}</arg>
+<arg>AUTO_NEXT</arg>
+<status status="PASS" start="2025-06-08T11:15:35.128287" elapsed="0.000000"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial" type="TEARDOWN">
+<msg time="2025-06-08T11:15:35.128287" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:15:35.244886" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:15:35.244886" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:35.128287" elapsed="0.116599"/>
+</kw>
+<doc>Czeka na skończenie piosenki i sprawdza, czy pojawił się AUTO_NEXT</doc>
+<tag>i2s</tag>
+<status status="PASS" start="2025-06-08T11:12:42.956594" elapsed="172.288292"/>
+</test>
+<test id="s1-s1-s1-t2" name="VERIFY_NEXT_AND_PREV_BUTTONS" line="31">
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:15:35.245883" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:15:35.245883" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:35.245883" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:15:35.247538" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:35.245883" elapsed="0.001655"/>
+</kw>
+<msg time="2025-06-08T11:15:35.247538" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:35.245883" elapsed="0.001655"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:35.247538" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:15:38.247853" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:15:38.247853" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:35.247538" elapsed="3.000315"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:15:38.248466" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:38.248466" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:15:38.248466" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:38.248466" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:15:38.248466" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:38.247853" elapsed="0.000613"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:38.249570" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:15:40.250104" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:15:40.250104" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:38.248466" elapsed="2.001638"/>
+</kw>
+<msg time="2025-06-08T11:15:40.250104" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:35.245883" elapsed="5.004221"/>
+</kw>
+<kw name="Ensure music is playing" owner="keywords">
+<msg time="2025-06-08T11:15:40.250735" level="TRACE">Arguments: [  ]</msg>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:40.250735" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:15:40.269253" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:15:40.270253" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:15:40.250735" elapsed="0.019518"/>
+</kw>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:15:40.270253" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:40.270253" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:15:40.270253" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:40.270253" elapsed="0.000998"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:40.271251" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:15:40.771465" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:15:40.771465" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:40.271251" elapsed="0.500214"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:40.772083" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:15:40.772083" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:40.771465" elapsed="0.000618"/>
+</kw>
+<msg time="2025-06-08T11:15:40.772083" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:40.270253" elapsed="0.501830"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:40.772083" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:15:41.772339" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:15:41.772339" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:40.772083" elapsed="1.000256"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:15:41.772873" level="TRACE">Arguments: [ 5 ]</msg>
+<msg time="2025-06-08T11:15:46.779951" level="INFO">[SERIAL] [LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE</msg>
+<msg time="2025-06-08T11:15:46.779951" level="TRACE">Return: ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<msg time="2025-06-08T11:15:46.779951" level="INFO">${lines} = ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<var>${lines}</var>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:15:41.772339" elapsed="5.007612"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:46.779951" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:15:46.901690" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:15:46.901690" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:46.779951" elapsed="0.121739"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.901690" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-06-08T11:15:46.901690" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Log' | '"Brak danych z seriala – pomijam analizę stanu muzyki"' | 'WARN' ]</msg>
+<msg time="2025-06-08T11:15:46.901690" level="TRACE">Return: None</msg>
+<arg>${lines}</arg>
+<arg>Log</arg>
+<arg>"Brak danych z seriala – pomijam analizę stanu muzyki"</arg>
+<arg>WARN</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2025-06-08T11:15:46.901690" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.902692" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Get From List' | '${lines}' | '-1' ]</msg>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-06-08T11:15:46.902692" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | '-1' ]</msg>
+<msg time="2025-06-08T11:15:46.902692" level="TRACE">Return: '[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'</msg>
+<arg>${lines}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.902692" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:15:46.902692" level="TRACE">Return: '[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'</msg>
+<msg time="2025-06-08T11:15:46.902692" level="INFO">${last_line} = [LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE</msg>
+<var>${last_line}</var>
+<arg>${lines}</arg>
+<arg>Get From List</arg>
+<arg>${lines}</arg>
+<arg>-1</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.902692" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.902692" level="TRACE">Arguments: [ ['[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'] | 'Evaluate' | "'${last_line}'.split(',')[4].strip() == '1'" ]</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.903692" level="TRACE">Arguments: [ "'[LOG] 2299,Confetti - Right Now,2,153,0,4,PAUSE'.split(',')[4].strip() == '1'" ]</msg>
+<msg time="2025-06-08T11:15:46.903692" level="TRACE">Return: False</msg>
+<arg>'${last_line}'.split(',')[4].strip() == '1'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.903692" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:15:46.903692" level="TRACE">Return: False</msg>
+<msg time="2025-06-08T11:15:46.904311" level="INFO">${is_music_playing} = False</msg>
+<var>${is_music_playing}</var>
+<arg>${lines}</arg>
+<arg>Evaluate</arg>
+<arg>'${last_line}'.split(',')[4].strip() == '1'</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.902692" elapsed="0.001619"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.904311" level="TRACE">Arguments: [ "'False' == 'False'" | 'Play Stop' ]</msg>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:15:46.904311" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:46.905427" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:15:46.905427" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:46.904311" elapsed="0.002495"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:46.906806" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:15:47.407095" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:15:47.407095" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.906806" elapsed="0.500289"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:47.407095" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:15:47.407095" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:47.407095" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:15:47.408212" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:46.904311" elapsed="0.503901"/>
+</kw>
+<msg time="2025-06-08T11:15:47.408212" level="TRACE">Return: None</msg>
+<arg>'${is_music_playing}' == 'False'</arg>
+<arg>Play Stop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-08T11:15:46.904311" elapsed="0.503901"/>
+</kw>
+<msg time="2025-06-08T11:15:47.408212" level="TRACE">Return: None</msg>
+<doc>Uruchamia muzykę, jeśli nie gra</doc>
+<status status="PASS" start="2025-06-08T11:15:40.250735" elapsed="7.157477"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:47.408212" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:15:47.416251" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:15:47.416251" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:15:47.408212" elapsed="0.008039"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:47.416251" level="TRACE">Arguments: [ '10' | '0' ]</msg>
+<msg time="2025-06-08T11:15:47.417249" level="TRACE">Return: None</msg>
+<arg>${NEXT}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:47.416251" elapsed="0.000998"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:47.417249" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:15:47.917454" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:15:47.917454" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:47.417249" elapsed="0.500205"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:47.917454" level="TRACE">Arguments: [ '10' | '1' ]</msg>
+<msg time="2025-06-08T11:15:47.918567" level="TRACE">Return: None</msg>
+<arg>${NEXT}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:47.917454" elapsed="0.001113"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:47.918567" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:15:48.919153" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:15:48.919153" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:47.918567" elapsed="1.000586"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:15:48.919153" level="TRACE">Arguments: [ 3 ]</msg>
+<msg time="2025-06-08T11:15:51.928919" level="INFO">[SERIAL] [LOG] 8926,Confetti - Right Now,2,153,1,4,PLAY
+[SERIAL] [LOG] 9440,Connor Kauffman - Bleed,0,145,1,4,NEXT</msg>
+<msg time="2025-06-08T11:15:51.928919" level="TRACE">Return: ['[LOG] 8926,Confetti - Right Now,2,153,1,4,PLAY',
+ '[LOG] 9440,Connor Kauffman - Bleed,0,145,1,4,NEXT']</msg>
+<msg time="2025-06-08T11:15:51.928919" level="INFO">${lines_next} = ['[LOG] 8926,Confetti - Right Now,2,153,1,4,PLAY', '[LOG] 9440,Connor Kauffman - Bleed,0,145,1,4,NEXT']</msg>
+<var>${lines_next}</var>
+<arg>3</arg>
+<status status="PASS" start="2025-06-08T11:15:48.919153" elapsed="3.009766"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:51.929428" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:15:52.049159" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:15:52.049159" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:51.929428" elapsed="0.119731"/>
+</kw>
+<kw name="Verify Log Contains Action" owner="read_serial">
+<msg time="2025-06-08T11:15:52.050170" level="TRACE">Arguments: [ ['[LOG] 8926,Confetti - Right Now,2,153,1,4,PLAY',
+ '[LOG] 9440,Connor Kauffman - Bleed,0,145,1,4,NEXT'] | 'NEXT' ]</msg>
+<msg time="2025-06-08T11:15:52.050170" level="TRACE">Return: None</msg>
+<arg>${lines_next}</arg>
+<arg>NEXT</arg>
+<status status="PASS" start="2025-06-08T11:15:52.049159" elapsed="0.001011"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:52.050170" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:15:52.068930" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:15:52.068930" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:15:52.050170" elapsed="0.018760"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:52.070438" level="TRACE">Arguments: [ '8' | '0' ]</msg>
+<msg time="2025-06-08T11:15:52.070854" level="TRACE">Return: None</msg>
+<arg>${PREV}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:52.068930" elapsed="0.001924"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:52.070854" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:15:52.571200" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:15:52.571200" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:52.070854" elapsed="0.500346"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:52.571813" level="TRACE">Arguments: [ '8' | '1' ]</msg>
+<msg time="2025-06-08T11:15:52.571813" level="TRACE">Return: None</msg>
+<arg>${PREV}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:52.571200" elapsed="0.000613"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:52.571813" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:15:53.581689" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:15:53.581689" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:52.571813" elapsed="1.009876"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:15:53.581689" level="TRACE">Arguments: [ 3 ]</msg>
+<msg time="2025-06-08T11:15:56.590546" level="INFO">[SERIAL] [LOG] 14090,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:15:56.590546" level="TRACE">Return: ['[LOG] 14090,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:15:56.591154" level="INFO">${lines_prev} = ['[LOG] 14090,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<var>${lines_prev}</var>
+<arg>3</arg>
+<status status="PASS" start="2025-06-08T11:15:53.581689" elapsed="3.009465"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:15:56.591154" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:15:56.702328" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:56.591154" elapsed="0.111174"/>
+</kw>
+<kw name="Verify Log Contains Action" owner="read_serial">
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Arguments: [ ['[LOG] 14090,Confetti - Right Now,0,153,1,4,PREV'] | 'PREV' ]</msg>
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Return: None</msg>
+<arg>${lines_prev}</arg>
+<arg>PREV</arg>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="0.000000"/>
+</kw>
+<doc>Weryfikuje działanie przycisków NEXT i PREV przez analizę logów z seriala</doc>
+<tag>i2s</tag>
+<status status="PASS" start="2025-06-08T11:15:35.245883" elapsed="21.456445"/>
+</test>
+<test id="s1-s1-s1-t3" name="VERIFY_PLAY_PAUSE_TOGGLE" line="56">
+<kw name="Hardware reboot" owner="keywords" type="SETUP">
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:56.702328" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:15:59.703771" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:15:59.703771" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="3.001443"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:15:59.703771" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:15:59.704899" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:15:59.705607" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:15:59.704899" elapsed="0.000708"/>
+</kw>
+<msg time="2025-06-08T11:15:59.705607" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:59.703771" elapsed="0.001836"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:15:59.705607" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:01.705877" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:01.705877" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:15:59.705607" elapsed="2.000270"/>
+</kw>
+<msg time="2025-06-08T11:16:01.705877" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="5.003549"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:01.705877" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:01.723495" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:01.723495" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:01.705877" elapsed="0.017618"/>
+</kw>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:16:01.723495" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:01.723495" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:16:01.723495" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:01.723495" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:01.723495" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:16:02.223737" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:16:02.223737" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:01.723495" elapsed="0.500242"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:02.223737" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:16:02.223737" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:02.223737" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:16:02.223737" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:01.723495" elapsed="0.500242"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:02.223737" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:16:03.224229" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:16:03.224229" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:02.223737" elapsed="1.000492"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:03.224229" level="TRACE">Arguments: [ 5 ]</msg>
+<msg time="2025-06-08T11:16:08.234904" level="INFO">[SERIAL] [LOG] 2300,Confetti - Right Now,2,153,0,4,PAUSE</msg>
+<msg time="2025-06-08T11:16:08.234904" level="TRACE">Return: ['[LOG] 2300,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<msg time="2025-06-08T11:16:08.234904" level="INFO">${logs_after_pause} = ['[LOG] 2300,Confetti - Right Now,2,153,0,4,PAUSE']</msg>
+<var>${logs_after_pause}</var>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:16:03.224229" elapsed="5.010675"/>
+</kw>
+<kw name="Verify Log Contains Action" owner="read_serial">
+<msg time="2025-06-08T11:16:08.234904" level="TRACE">Arguments: [ ['[LOG] 2300,Confetti - Right Now,2,153,0,4,PAUSE'] | 'PAUSE' ]</msg>
+<msg time="2025-06-08T11:16:08.234904" level="TRACE">Return: None</msg>
+<arg>${logs_after_pause}</arg>
+<arg>PAUSE</arg>
+<status status="PASS" start="2025-06-08T11:16:08.234904" elapsed="0.000000"/>
+</kw>
+<kw name="Play Stop" owner="keywords">
+<msg time="2025-06-08T11:16:08.234904" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:08.237035" level="TRACE">Arguments: [ '6' | '0' ]</msg>
+<msg time="2025-06-08T11:16:08.237035" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:08.237035" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:08.237035" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:16:08.737388" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:16:08.737388" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:08.237035" elapsed="0.500353"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:08.737388" level="TRACE">Arguments: [ '6' | '1' ]</msg>
+<msg time="2025-06-08T11:16:08.737388" level="TRACE">Return: None</msg>
+<arg>${PLAY_STOP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:08.737388" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:16:08.737388" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:08.234904" elapsed="0.502484"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:08.737388" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-06-08T11:16:09.738029" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:16:09.738029" level="TRACE">Return: None</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:08.737388" elapsed="1.000641"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:09.738658" level="TRACE">Arguments: [ 5 ]</msg>
+<msg time="2025-06-08T11:16:14.743472" level="INFO">[SERIAL] [LOG] 8801,Confetti - Right Now,2,153,1,4,PLAY</msg>
+<msg time="2025-06-08T11:16:14.743472" level="TRACE">Return: ['[LOG] 8801,Confetti - Right Now,2,153,1,4,PLAY']</msg>
+<msg time="2025-06-08T11:16:14.743472" level="INFO">${logs_after_play} = ['[LOG] 8801,Confetti - Right Now,2,153,1,4,PLAY']</msg>
+<var>${logs_after_play}</var>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:16:09.738029" elapsed="5.005443"/>
+</kw>
+<kw name="Verify Log Contains Action" owner="read_serial">
+<msg time="2025-06-08T11:16:14.743472" level="TRACE">Arguments: [ ['[LOG] 8801,Confetti - Right Now,2,153,1,4,PLAY'] | 'PLAY' ]</msg>
+<msg time="2025-06-08T11:16:14.743472" level="TRACE">Return: None</msg>
+<arg>${logs_after_play}</arg>
+<arg>PLAY</arg>
+<status status="PASS" start="2025-06-08T11:16:14.743472" elapsed="0.000000"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial" type="TEARDOWN">
+<msg time="2025-06-08T11:16:14.743472" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:14.872195" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:14.743472" elapsed="0.128723"/>
+</kw>
+<doc>Sprawdza poprawne przełączanie Play/Pause i analizuje czy piosenka gra</doc>
+<tag>i2s</tag>
+<status status="PASS" start="2025-06-08T11:15:56.702328" elapsed="18.169867"/>
+</test>
+<test id="s1-s1-s1-t4" name="MEASURE_BOOT_TIMES_OVER_10_RUNS" line="72">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Return: []</msg>
+<msg time="2025-06-08T11:16:14.872195" level="INFO">${boot_times} = []</msg>
+<var>${boot_times}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Return: []</msg>
+<msg time="2025-06-08T11:16:14.872195" level="INFO">${boot_times_sec} = []</msg>
+<var>${boot_times_sec}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Arguments: [ 'Iteracja: 1' ]</msg>
+<msg time="2025-06-08T11:16:14.872195" level="INFO">Iteracja: 1</msg>
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="0.000000"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:14.872195" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:14.890335" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="0.018140"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:14.890335" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:14.890335" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:14.890335" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:16:17.890743" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:16:17.890743" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:14.890335" elapsed="3.000408"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:16:17.890743" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:17.891868" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:16:17.892914" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:17.891868" elapsed="0.001046"/>
+</kw>
+<msg time="2025-06-08T11:16:17.892914" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:17.890743" elapsed="0.002171"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:17.892914" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:19.893429" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:19.893429" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:17.892914" elapsed="2.000515"/>
+</kw>
+<msg time="2025-06-08T11:16:19.893429" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:14.890335" elapsed="5.003094"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:19.894064" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:16:23.898864" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1195,BOOT_COMPLETE
+[SERIAL] [LOG] 1195,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1195,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1208,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1210,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:16:23.898864" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1195,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1195,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1208,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1210,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:16:23.898864" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x00\x18ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,c...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:16:19.894064" elapsed="4.004800"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:23.898864" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:24.016735" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:16:24.016735" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:23.898864" elapsed="0.117871"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:16:24.016735" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1195,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1195,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1208,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1210,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:16:24.016735" level="TRACE">Return: 1195</msg>
+<msg time="2025-06-08T11:16:24.016735" level="INFO">${boot} = 1195</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:16:24.016735" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:16:24.017724" level="TRACE">Arguments: [ [] | 1195 ]</msg>
+<msg time="2025-06-08T11:16:24.017724" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:16:24.017724" elapsed="0.000000"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="9.145529"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:16:24.018722" level="TRACE">Arguments: [ 'Iteracja: 2' ]</msg>
+<msg time="2025-06-08T11:16:24.018722" level="INFO">Iteracja: 2</msg>
+<msg time="2025-06-08T11:16:24.018722" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:16:24.017724" elapsed="0.000998"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:24.018722" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:24.036643" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:24.036643" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:24.018722" elapsed="0.017921"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:16:24.037643" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:16:24.037643" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:24.037643" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:16:24.038643" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:24.037643" elapsed="0.001000"/>
+</kw>
+<msg time="2025-06-08T11:16:24.038643" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:24.037643" elapsed="0.001000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:24.038643" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:16:27.038833" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:16:27.038833" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:24.038643" elapsed="3.000190"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:16:27.038833" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:27.038833" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:16:27.039950" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:27.038833" elapsed="0.001117"/>
+</kw>
+<msg time="2025-06-08T11:16:27.039950" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:27.038833" elapsed="0.001117"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:27.039950" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:29.040204" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:29.040204" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:27.039950" elapsed="2.000254"/>
+</kw>
+<msg time="2025-06-08T11:16:29.040204" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:24.036643" elapsed="5.003561"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:29.040204" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:16:33.047317" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ?ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1195,BOOT_COMPLETE
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1211,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:16:33.047317" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00?ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:16:33.047317" level="INFO">${lines} = ['Brownout detector was triggered', '\x00?ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:16:29.040204" elapsed="4.007113"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:33.047317" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:33.156615" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:16:33.156615" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:33.047317" elapsed="0.109298"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:16:33.156615" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00?ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:16:33.156615" level="TRACE">Return: 1195</msg>
+<msg time="2025-06-08T11:16:33.156615" level="INFO">${boot} = 1195</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:16:33.156615" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:16:33.157606" level="TRACE">Arguments: [ [1195] | 1195 ]</msg>
+<msg time="2025-06-08T11:16:33.157606" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:16:33.157606" elapsed="0.000000"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-06-08T11:16:24.017724" elapsed="9.139882"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:16:33.158613" level="TRACE">Arguments: [ 'Iteracja: 3' ]</msg>
+<msg time="2025-06-08T11:16:33.158613" level="INFO">Iteracja: 3</msg>
+<msg time="2025-06-08T11:16:33.158613" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:16:33.157606" elapsed="0.001007"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:33.158613" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:33.170599" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:33.170599" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:33.158613" elapsed="0.011986"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:16:33.170599" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:16:33.170599" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:33.171602" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:16:33.171602" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:33.170599" elapsed="0.001003"/>
+</kw>
+<msg time="2025-06-08T11:16:33.171602" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:33.170599" elapsed="0.001003"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:33.171602" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:16:36.172104" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:16:36.172104" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:33.171602" elapsed="3.000502"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:16:36.172104" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:36.172104" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:16:36.173224" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:36.172104" elapsed="0.001120"/>
+</kw>
+<msg time="2025-06-08T11:16:36.173224" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:36.172104" elapsed="0.001120"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:36.173224" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:38.173411" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:38.173411" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:36.173224" elapsed="2.000187"/>
+</kw>
+<msg time="2025-06-08T11:16:38.173411" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:33.170599" elapsed="5.002812"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:38.173411" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:16:42.178644" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1195,BOOT_COMPLETE
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1211,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:16:42.178644" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:16:42.178644" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x18ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_d...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:16:38.173411" elapsed="4.005233"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:42.179151" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:42.290895" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:16:42.290895" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:42.179151" elapsed="0.111744"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:16:42.291402" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:16:42.291402" level="TRACE">Return: 1195</msg>
+<msg time="2025-06-08T11:16:42.291402" level="INFO">${boot} = 1195</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:16:42.290895" elapsed="0.000507"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:16:42.291402" level="TRACE">Arguments: [ [1195, 1195] | 1195 ]</msg>
+<msg time="2025-06-08T11:16:42.291402" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:16:42.291402" elapsed="0.000000"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-06-08T11:16:33.157606" elapsed="9.133796"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:16:42.292411" level="TRACE">Arguments: [ 'Iteracja: 4' ]</msg>
+<msg time="2025-06-08T11:16:42.292411" level="INFO">Iteracja: 4</msg>
+<msg time="2025-06-08T11:16:42.292411" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:16:42.291402" elapsed="0.001009"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:42.292411" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:42.302596" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:42.302596" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:42.292411" elapsed="0.010185"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:16:42.302596" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:16:42.302596" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:42.302596" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:16:42.304106" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:42.302596" elapsed="0.001510"/>
+</kw>
+<msg time="2025-06-08T11:16:42.304106" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:42.302596" elapsed="0.001510"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:42.304106" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:16:45.304343" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:16:45.304343" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:42.304106" elapsed="3.000237"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:16:45.304852" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:45.304852" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:16:45.305862" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:45.304852" elapsed="0.001010"/>
+</kw>
+<msg time="2025-06-08T11:16:45.305862" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:45.304343" elapsed="0.001519"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:45.305862" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:47.306224" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:47.306224" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:45.305862" elapsed="2.000362"/>
+</kw>
+<msg time="2025-06-08T11:16:47.306761" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:42.302596" elapsed="5.004165"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:47.306761" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:16:51.317086" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1195,BOOT_COMPLETE
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1211,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:16:51.317086" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:16:51.317086" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x00\x18ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,c...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:16:47.306761" elapsed="4.010833"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:51.317594" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:16:51.436309" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:16:51.436309" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:51.317594" elapsed="0.118715"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:16:51.436815" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1195,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1196,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1209,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1211,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:16:51.436815" level="TRACE">Return: 1195</msg>
+<msg time="2025-06-08T11:16:51.436815" level="INFO">${boot} = 1195</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:16:51.436309" elapsed="0.000506"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:16:51.436815" level="TRACE">Arguments: [ [1195, 1195, 1195] | 1195 ]</msg>
+<msg time="2025-06-08T11:16:51.436815" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:16:51.436815" elapsed="0.000000"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-06-08T11:16:42.291402" elapsed="9.145413"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:16:51.437822" level="TRACE">Arguments: [ 'Iteracja: 5' ]</msg>
+<msg time="2025-06-08T11:16:51.437822" level="INFO">Iteracja: 5</msg>
+<msg time="2025-06-08T11:16:51.437822" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:16:51.436815" elapsed="0.001007"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:16:51.437822" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:16:51.450479" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:16:51.450479" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:16:51.437822" elapsed="0.012657"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:16:51.451480" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:16:51.451987" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:51.451987" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:16:51.451987" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:16:51.451987" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:16:51.451987" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:51.451987" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:51.452995" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:16:54.453394" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:16:54.453394" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:51.451987" elapsed="3.001407"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:16:54.453900" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:16:54.453900" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:16:54.453900" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:16:54.453900" elapsed="0.001006"/>
+</kw>
+<msg time="2025-06-08T11:16:54.454906" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:54.453900" elapsed="0.001006"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:16:54.454906" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:16:56.455070" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:16:56.455070" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:16:54.454906" elapsed="2.000164"/>
+</kw>
+<msg time="2025-06-08T11:16:56.455070" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:16:51.451480" elapsed="5.003590"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:16:56.455070" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:00.465121" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1196,BOOT_COMPLETE
+[SERIAL] [LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1212,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:00.465121" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1196,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1212,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:00.465624" level="INFO">${lines} = ['Brownout detector was triggered', '\x00ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:16:56.455070" elapsed="4.010554"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:00.465624" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:00.583700" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:00.583700" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:00.465624" elapsed="0.118076"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:00.583700" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1196,BOOT_COMPLETE',
+ '[LOG] 1196,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1212,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:00.583700" level="TRACE">Return: 1196</msg>
+<msg time="2025-06-08T11:17:00.583700" level="INFO">${boot} = 1196</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:00.583700" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:00.584699" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195] | 1196 ]</msg>
+<msg time="2025-06-08T11:17:00.584699" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:00.583700" elapsed="0.000999"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-06-08T11:16:51.436815" elapsed="9.147884"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:00.584699" level="TRACE">Arguments: [ 'Iteracja: 6' ]</msg>
+<msg time="2025-06-08T11:17:00.585700" level="INFO">Iteracja: 6</msg>
+<msg time="2025-06-08T11:17:00.585700" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:00.584699" elapsed="0.001001"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:00.585700" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:00.599717" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:00.599717" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:00.585700" elapsed="0.014017"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:17:00.599717" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:00.600723" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:00.600723" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:00.600723" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:00.600723" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:17:00.600723" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:00.599717" elapsed="0.001006"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:00.600723" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:03.601148" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:03.601148" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:00.600723" elapsed="3.000425"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:03.601658" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:03.601658" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:03.602454" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:03.601658" elapsed="0.000796"/>
+</kw>
+<msg time="2025-06-08T11:17:03.602454" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:03.601658" elapsed="0.000796"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:03.602454" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:05.602633" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:05.602633" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:03.602454" elapsed="2.000179"/>
+</kw>
+<msg time="2025-06-08T11:17:05.602633" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:00.599717" elapsed="5.002916"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:17:05.603644" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:09.609072" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1196,BOOT_COMPLETE
+[SERIAL] [LOG] 1197,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1212,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:09.609072" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1196,BOOT_COMPLETE',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1212,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:09.609072" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x18ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_d...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:17:05.602633" elapsed="4.006439"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:09.610113" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:09.724381" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:09.724381" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:09.610113" elapsed="0.114268"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:09.725275" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1196,BOOT_COMPLETE',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1197,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1197,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1210,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1212,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:09.725275" level="TRACE">Return: 1196</msg>
+<msg time="2025-06-08T11:17:09.725275" level="INFO">${boot} = 1196</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:09.724381" elapsed="0.000894"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:09.725275" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195, 1196] | 1196 ]</msg>
+<msg time="2025-06-08T11:17:09.725275" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:09.725275" elapsed="0.000000"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-06-08T11:17:00.584699" elapsed="9.141825"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:09.726524" level="TRACE">Arguments: [ 'Iteracja: 7' ]</msg>
+<msg time="2025-06-08T11:17:09.726524" level="INFO">Iteracja: 7</msg>
+<msg time="2025-06-08T11:17:09.726524" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:09.726524" elapsed="0.000000"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:09.726524" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:09.731434" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:09.732431" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:09.726524" elapsed="0.005907"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:17:09.732431" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:09.732431" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:09.732431" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:09.733444" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:09.732431" elapsed="0.001013"/>
+</kw>
+<msg time="2025-06-08T11:17:09.733444" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:09.732431" elapsed="0.001013"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:09.733444" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:12.733779" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:12.733779" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:09.733444" elapsed="3.000335"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:12.734291" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:12.734291" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:12.734876" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:12.734291" elapsed="0.000585"/>
+</kw>
+<msg time="2025-06-08T11:17:12.734876" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:12.733779" elapsed="0.001097"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:12.734876" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:14.735525" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:14.735525" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:12.734876" elapsed="2.000649"/>
+</kw>
+<msg time="2025-06-08T11:17:14.735525" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:09.732431" elapsed="5.003094"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:17:14.735525" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:18.740485" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1207,BOOT_COMPLETE
+[SERIAL] [LOG] 1208,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1208,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1208,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1221,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1223,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:18.740485" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1207,BOOT_COMPLETE',
+ '[LOG] 1208,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1208,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1208,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1221,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1223,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:18.741358" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x18ets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_d...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:17:14.735525" elapsed="4.005833"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:18.741358" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:18.857413" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:18.857413" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:18.741358" elapsed="0.116055"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:18.858298" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x18ets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1207,BOOT_COMPLETE',
+ '[LOG] 1208,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1208,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1208,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1221,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1223,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:18.858298" level="TRACE">Return: 1207</msg>
+<msg time="2025-06-08T11:17:18.858298" level="INFO">${boot} = 1207</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:18.858298" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:18.859306" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195, 1196, 1196] | 1207 ]</msg>
+<msg time="2025-06-08T11:17:18.859306" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:18.858298" elapsed="0.001008"/>
+</kw>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-06-08T11:17:09.726524" elapsed="9.132782"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:18.859306" level="TRACE">Arguments: [ 'Iteracja: 8' ]</msg>
+<msg time="2025-06-08T11:17:18.859306" level="INFO">Iteracja: 8</msg>
+<msg time="2025-06-08T11:17:18.859306" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:18.859306" elapsed="0.000000"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:18.859306" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:18.875834" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:18.875834" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:18.859306" elapsed="0.016528"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:17:18.875834" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:18.875834" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:18.877924" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:18.878457" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:18.877924" elapsed="0.000533"/>
+</kw>
+<msg time="2025-06-08T11:17:18.878457" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:18.875834" elapsed="0.002623"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:18.878457" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:21.878833" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:21.878833" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:18.878457" elapsed="3.000376"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:21.879341" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:21.880349" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:21.880349" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:21.879341" elapsed="0.001008"/>
+</kw>
+<msg time="2025-06-08T11:17:21.880349" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:21.879341" elapsed="0.001008"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:21.881356" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:23.881801" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:23.881801" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:21.880349" elapsed="2.001452"/>
+</kw>
+<msg time="2025-06-08T11:17:23.881801" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:18.875834" elapsed="5.005967"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:17:23.881801" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:27.887195" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1164,BOOT_COMPLETE
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1180,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:27.887195" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1164,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1180,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:27.887195" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x1cets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_d...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:17:23.881801" elapsed="4.005394"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:27.887195" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:28.001858" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:28.001858" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:27.887195" elapsed="0.114663"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:28.001858" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1164,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1180,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:28.001858" level="TRACE">Return: 1164</msg>
+<msg time="2025-06-08T11:17:28.001858" level="INFO">${boot} = 1164</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:28.001858" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:28.001858" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195, 1196, 1196, 1207] | 1164 ]</msg>
+<msg time="2025-06-08T11:17:28.003863" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:28.001858" elapsed="0.002005"/>
+</kw>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-06-08T11:17:18.859306" elapsed="9.144557"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:28.003863" level="TRACE">Arguments: [ 'Iteracja: 9' ]</msg>
+<msg time="2025-06-08T11:17:28.003863" level="INFO">Iteracja: 9</msg>
+<msg time="2025-06-08T11:17:28.003863" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:28.003863" elapsed="0.000000"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:28.005869" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:28.012281" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:28.012281" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:28.003863" elapsed="0.008418"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:17:28.012281" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:28.014288" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:28.014288" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:28.014288" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:28.014288" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:17:28.014288" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:28.012281" elapsed="0.002007"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:28.014288" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:31.014518" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:31.014518" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:28.014288" elapsed="3.000230"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:31.014518" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:31.014518" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:31.014518" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:31.014518" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:17:31.014518" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:31.014518" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:31.016531" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:33.018205" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:33.018205" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:31.016531" elapsed="2.001674"/>
+</kw>
+<msg time="2025-06-08T11:17:33.018205" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:28.012281" elapsed="5.005924"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:17:33.018205" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:37.025291" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1164,BOOT_COMPLETE
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1180,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:37.025291" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1164,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1180,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:37.025291" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x00\x1cets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,c...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:17:33.018205" elapsed="4.007086"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:37.025291" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:37.133948" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:37.133948" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:37.025291" elapsed="0.108657"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:37.133948" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1164,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1165,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1178,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1180,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:37.133948" level="TRACE">Return: 1164</msg>
+<msg time="2025-06-08T11:17:37.133948" level="INFO">${boot} = 1164</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:37.133948" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:37.133948" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195, 1196, 1196, 1207, 1164] | 1164 ]</msg>
+<msg time="2025-06-08T11:17:37.133948" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:37.133948" elapsed="0.000000"/>
+</kw>
+<var name="${index}">8</var>
+<status status="PASS" start="2025-06-08T11:17:28.003863" elapsed="9.130085"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:37.135954" level="TRACE">Arguments: [ 'Iteracja: 10' ]</msg>
+<msg time="2025-06-08T11:17:37.135954" level="INFO">Iteracja: 10</msg>
+<msg time="2025-06-08T11:17:37.135954" level="TRACE">Return: None</msg>
+<arg>Iteracja: ${index + 1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:37.135954" elapsed="0.000000"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:37.135954" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:37.146578" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:37.146578" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:37.135954" elapsed="0.010624"/>
+</kw>
+<kw name="Hardware reboot" owner="keywords">
+<msg time="2025-06-08T11:17:37.146578" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:37.148589" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:37.148589" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:37.149295" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:37.148589" elapsed="0.000706"/>
+</kw>
+<msg time="2025-06-08T11:17:37.149295" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:37.146578" elapsed="0.002717"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:37.149295" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:40.149579" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:37.149295" elapsed="3.000284"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:40.149579" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:40.149579" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:40.149579" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:42.149777" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:42.149777" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:40.149579" elapsed="2.000198"/>
+</kw>
+<msg time="2025-06-08T11:17:42.149777" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:37.146578" elapsed="5.003199"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:17:42.149777" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:17:46.155934" level="INFO">[SERIAL] Brownout detector was triggered
+[SERIAL] ets Jun  8 2016 00:22:57
+[SERIAL] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[SERIAL] configsip: 0, SPIWP:0xee
+[SERIAL] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[SERIAL] mode:DIO, clock div:2
+[SERIAL] load:0x3fff0030,len:1184
+[SERIAL] load:0x40078000,len:13232
+[SERIAL] load:0x40080400,len:3028
+[SERIAL] entry 0x400805e4
+[SERIAL] [     3][E][vfs_api.cpp:24] open(): File system is not mounted
+[SERIAL] Karta SD zainicjalizowana.
+[SERIAL] [LOG] 1165,BOOT_COMPLETE
+[SERIAL] [LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP
+[SERIAL] [LOG] 1166,Confetti - Right Now,0,153,0,4,VOL_DOWN
+[SERIAL] [LOG] 1166,Confetti - Right Now,0,153,1,4,PLAY
+[SERIAL] [LOG] 1179,Connor Kauffman - Bleed,0,145,1,4,NEXT
+[SERIAL] [LOG] 1181,Confetti - Right Now,0,153,1,4,PREV</msg>
+<msg time="2025-06-08T11:17:46.155934" level="TRACE">Return: ['Brownout detector was triggered',
+ '\x00\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1165,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1166,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1166,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1179,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1181,Confetti - Right Now,0,153,1,4,PREV']</msg>
+<msg time="2025-06-08T11:17:46.155934" level="INFO">${lines} = ['Brownout detector was triggered', '\x00\x00\x1cets Jun  8 2016 00:22:57', 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)', 'configsip: 0, SPIWP:0xee', 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,c...</msg>
+<var>${lines}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:17:42.149777" elapsed="4.006157"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:46.155934" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:17:46.274433" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:17:46.274433" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:46.155934" elapsed="0.118499"/>
+</kw>
+<kw name="Extract Boot Millis From Lines" owner="read_serial">
+<msg time="2025-06-08T11:17:46.274847" level="TRACE">Arguments: [ ['Brownout detector was triggered',
+ '\x00\x00\x1cets Jun  8 2016 00:22:57',
+ 'rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)',
+ 'configsip: 0, SPIWP:0xee',
+ 'clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00',
+ 'mode:DIO, clock div:2',
+ 'load:0x3fff0030,len:1184',
+ 'load:0x40078000,len:13232',
+ 'load:0x40080400,len:3028',
+ 'entry 0x400805e4',
+ '[     3][E][vfs_api.cpp:24] open(): File system is not mounted',
+ 'Karta SD zainicjalizowana.',
+ '[LOG] 1165,BOOT_COMPLETE',
+ '[LOG] 1165,Confetti - Right Now,0,153,0,5,VOL_UP',
+ '[LOG] 1166,Confetti - Right Now,0,153,0,4,VOL_DOWN',
+ '[LOG] 1166,Confetti - Right Now,0,153,1,4,PLAY',
+ '[LOG] 1179,Connor Kauffman - Bleed,0,145,1,4,NEXT',
+ '[LOG] 1181,Confetti - Right Now,0,153,1,4,PREV'] ]</msg>
+<msg time="2025-06-08T11:17:46.274847" level="TRACE">Return: 1165</msg>
+<msg time="2025-06-08T11:17:46.274847" level="INFO">${boot} = 1165</msg>
+<var>${boot}</var>
+<arg>${lines}</arg>
+<status status="PASS" start="2025-06-08T11:17:46.274847" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<msg time="2025-06-08T11:17:46.275849" level="TRACE">Arguments: [ [1195, 1195, 1195, 1195, 1196, 1196, 1207, 1164, 1164] | 1165 ]</msg>
+<msg time="2025-06-08T11:17:46.275849" level="TRACE">Return: None</msg>
+<arg>${boot_times}</arg>
+<arg>${boot}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-06-08T11:17:46.275849" elapsed="0.000000"/>
+</kw>
+<var name="${index}">9</var>
+<status status="PASS" start="2025-06-08T11:17:37.135954" elapsed="9.139895"/>
+</iter>
+<var>${index}</var>
+<value>10</value>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="91.403654"/>
+</for>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-08T11:17:46.275849" level="TRACE">Arguments: [ 'Czasy uruchomienia (ms): [1195, 1195, 1195, 1195, 1196, 1196, 1207, 1164, 1164, 1165]' ]</msg>
+<msg time="2025-06-08T11:17:46.275849" level="INFO">Czasy uruchomienia (ms): [1195, 1195, 1195, 1195, 1196, 1196, 1207, 1164, 1164, 1165]</msg>
+<msg time="2025-06-08T11:17:46.275849" level="TRACE">Return: None</msg>
+<arg>Czasy uruchomienia (ms): ${boot_times}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-08T11:17:46.275849" elapsed="0.000000"/>
+</kw>
+<doc>Mierzy czasy startu urządzenia przez 10 restartów i wypisuje je w ms i sekundach.</doc>
+<tag>i2s</tag>
+<status status="PASS" start="2025-06-08T11:16:14.872195" elapsed="91.403654"/>
+</test>
+<test id="s1-s1-s1-t5" name="VERIFY_VOLUME_CONTROL" line="89">
+<kw name="Hardware reboot" owner="keywords" type="SETUP">
+<msg time="2025-06-08T11:17:46.278030" level="TRACE">Arguments: [  ]</msg>
+<kw name="Cut off power from device" owner="keywords">
+<msg time="2025-06-08T11:17:46.279537" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:46.279537" level="TRACE">Arguments: [ '7' | '1' ]</msg>
+<msg time="2025-06-08T11:17:46.280667" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:46.279537" elapsed="0.001130"/>
+</kw>
+<msg time="2025-06-08T11:17:46.280667" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:46.279537" elapsed="0.001130"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:46.280667" level="TRACE">Arguments: [ '3s' ]</msg>
+<msg time="2025-06-08T11:17:49.280808" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Return: None</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:46.280667" elapsed="3.000141"/>
+</kw>
+<kw name="Power up device" owner="keywords">
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Arguments: [ '7' | '0' ]</msg>
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Return: None</msg>
+<arg>${PWR_RELAY}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:49.280808" elapsed="0.000000"/>
+</kw>
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:49.280808" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:49.280808" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-06-08T11:17:51.281048" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-06-08T11:17:51.281048" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:49.280808" elapsed="2.000240"/>
+</kw>
+<msg time="2025-06-08T11:17:51.281048" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:46.278030" elapsed="5.003018"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:17:51.282166" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:17:51.295418" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:17:51.295418" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:17:51.281048" elapsed="0.014370"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:51.295418" level="TRACE">Arguments: [ '1s' ]</msg>
+<msg time="2025-06-08T11:17:52.295933" level="INFO">Slept 1 second.</msg>
+<msg time="2025-06-08T11:17:52.295933" level="TRACE">Return: None</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:51.295418" elapsed="1.000515"/>
+</kw>
+<kw name="Volume device up" owner="keywords">
+<msg time="2025-06-08T11:17:52.296943" level="TRACE">Arguments: [  ]</msg>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:52.297952" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:52.297952" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:52.297952" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:52.297952" elapsed="0.001508"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:52.299460" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:52.799478" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:52.799478" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:52.299460" elapsed="0.500018"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:52.800093" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:52.800093" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:52.800093" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:52.801224" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:53.302236" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:52.800093" elapsed="0.502143"/>
+</kw>
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:52.297952" elapsed="1.004284"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">0</var>
+<status status="PASS" start="2025-06-08T11:17:52.297952" elapsed="1.004284"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:53.302236" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:53.302236" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:53.802498" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:53.802498" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:53.302236" elapsed="0.500262"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:53.802498" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:53.802498" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:53.802498" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:53.802498" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:54.302598" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:53.802498" elapsed="0.500100"/>
+</kw>
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:53.302236" elapsed="1.000362"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">1</var>
+<status status="PASS" start="2025-06-08T11:17:53.302236" elapsed="1.000362"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:54.302598" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:54.302598" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:54.802624" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:54.802624" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:54.302598" elapsed="0.500026"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:54.802624" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:54.803635" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:54.802624" elapsed="0.001011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:54.803635" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:55.303959" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:55.303959" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:54.803635" elapsed="0.500324"/>
+</kw>
+<msg time="2025-06-08T11:17:55.303959" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:54.302598" elapsed="1.001361"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">2</var>
+<status status="PASS" start="2025-06-08T11:17:54.302598" elapsed="1.001361"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:55.303959" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:55.303959" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:55.305360" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:55.303959" elapsed="0.001401"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:55.305360" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:55.806105" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:55.806105" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:55.305360" elapsed="0.500745"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:55.806630" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:55.807005" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:55.806105" elapsed="0.000900"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:55.807005" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:56.307466" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:56.307466" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:55.807005" elapsed="0.500461"/>
+</kw>
+<msg time="2025-06-08T11:17:56.307466" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:55.303959" elapsed="1.003507"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">3</var>
+<status status="PASS" start="2025-06-08T11:17:55.303959" elapsed="1.003507"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:56.307466" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:56.307466" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:56.307466" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:56.307466" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:56.308994" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:56.809135" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:56.809135" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:56.308994" elapsed="0.500141"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:56.809135" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:56.810142" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:56.809135" elapsed="0.001007"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:56.810142" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:57.310623" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:57.310623" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:56.810142" elapsed="0.500481"/>
+</kw>
+<msg time="2025-06-08T11:17:57.310623" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:56.307466" elapsed="1.003157"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">4</var>
+<status status="PASS" start="2025-06-08T11:17:56.307466" elapsed="1.003157"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:57.310623" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:57.311632" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:57.311632" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:57.311632" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:57.311632" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:57.812304" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:57.812304" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:57.311632" elapsed="0.500672"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:57.812304" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:57.813314" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:57.812304" elapsed="0.001010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:57.813314" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:58.313979" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:58.313979" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:57.813314" elapsed="0.500665"/>
+</kw>
+<msg time="2025-06-08T11:17:58.313979" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:57.310623" elapsed="1.003356"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">5</var>
+<status status="PASS" start="2025-06-08T11:17:57.310623" elapsed="1.003356"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:58.313979" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:58.313979" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:58.315112" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:58.313979" elapsed="0.001133"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:58.315112" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:58.815412" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:58.815412" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:58.315112" elapsed="0.500300"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:58.815412" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:58.815412" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:58.815412" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:58.815412" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:59.315614" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:59.315614" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:58.815412" elapsed="0.500202"/>
+</kw>
+<msg time="2025-06-08T11:17:59.315614" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:58.313979" elapsed="1.001635"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">6</var>
+<status status="PASS" start="2025-06-08T11:17:58.313979" elapsed="1.001635"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:17:59.315614" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:59.316787" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:17:59.317189" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:17:59.315614" elapsed="0.001575"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:59.317189" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:17:59.817394" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:17:59.817394" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:59.317189" elapsed="0.500205"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:17:59.817903" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:17:59.817903" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:17:59.817903" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:17:59.818913" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:00.319122" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:17:59.818913" elapsed="0.500209"/>
+</kw>
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:59.315614" elapsed="1.003508"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">7</var>
+<status status="PASS" start="2025-06-08T11:17:59.315614" elapsed="1.003508"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:00.319122" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:00.319122" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:00.819626" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:00.819626" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:00.319122" elapsed="0.500504"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:00.819626" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:18:00.819626" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:00.819626" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:00.819626" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:01.319784" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:00.819626" elapsed="0.500158"/>
+</kw>
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:00.319122" elapsed="1.000662"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">8</var>
+<status status="PASS" start="2025-06-08T11:18:00.319122" elapsed="1.000662"/>
+</iter>
+<iter>
+<kw name="Volume UP" owner="keywords">
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Arguments: [ '11' | '0' ]</msg>
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:01.319784" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:01.319784" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:01.820193" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:01.820193" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:01.319784" elapsed="0.500409"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:01.820193" level="TRACE">Arguments: [ '11' | '1' ]</msg>
+<msg time="2025-06-08T11:18:01.820193" level="TRACE">Return: None</msg>
+<arg>${VOL_UP}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:01.820193" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:01.821312" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:02.321671" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:02.321671" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:01.821312" elapsed="0.500359"/>
+</kw>
+<msg time="2025-06-08T11:18:02.321671" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:01.319784" elapsed="1.001887"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">9</var>
+<status status="PASS" start="2025-06-08T11:18:01.319784" elapsed="1.001887"/>
+</iter>
+<var>${TOGGLE_COUNTER}</var>
+<value>0</value>
+<value>10</value>
+<status status="PASS" start="2025-06-08T11:17:52.296943" elapsed="10.024728"/>
+</for>
+<msg time="2025-06-08T11:18:02.321671" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:17:52.296943" elapsed="10.024728"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:18:02.321671" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[SERIAL] [LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP
+[SERIAL] [LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP
+[SERIAL] [LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP
+[SERIAL] [LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP
+[SERIAL] [LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP
+[SERIAL] [LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP']</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">${logs_after_up} = ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP', '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP', '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP', '[LOG] 6292,Confetti - Right Now,6,153,1,8,...</msg>
+<var>${logs_after_up}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:18:02.321671" elapsed="4.001871"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '5' ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[VERIFY] Znaleziono volume = 5 w logu: [LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '6' ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[VERIFY] Znaleziono volume = 6 w logu: [LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>6</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '7' ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[VERIFY] Znaleziono volume = 7 w logu: [LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>7</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '9' ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[VERIFY] Znaleziono volume = 9 w logu: [LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>9</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '9' ]</msg>
+<msg time="2025-06-08T11:18:06.323542" level="INFO">[VERIFY] Znaleziono volume = 9 w logu: [LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>9</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:06.323542" level="TRACE">Arguments: [ ['[LOG] 3283,Confetti - Right Now,3,153,1,5,VOL_UP',
+ '[LOG] 4286,Confetti - Right Now,4,153,1,6,VOL_UP',
+ '[LOG] 5285,Confetti - Right Now,5,153,1,7,VOL_UP',
+ '[LOG] 6292,Confetti - Right Now,6,153,1,8,VOL_UP',
+ '[LOG] 7294,Confetti - Right Now,7,153,1,9,VOL_UP',
+ '[LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP'] | 'volume' | '5' | '10' ]</msg>
+<msg time="2025-06-08T11:18:06.326616" level="INFO">[VERIFY] Znaleziono volume = 10 w logu: [LOG] 8295,Confetti - Right Now,8,153,1,10,VOL_UP</msg>
+<msg time="2025-06-08T11:18:06.326616" level="TRACE">Return: None</msg>
+<arg>${logs_after_up}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>10</arg>
+<status status="PASS" start="2025-06-08T11:18:06.323542" elapsed="0.003074"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:18:06.326616" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:18:06.438726" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:18:06.438726" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:06.326616" elapsed="0.112110"/>
+</kw>
+<kw name="Open Serial Port" owner="read_serial">
+<msg time="2025-06-08T11:18:06.438726" level="TRACE">Arguments: [ 'COM13' | 115200 | 2 ]</msg>
+<msg time="2025-06-08T11:18:06.441829" level="INFO">[SerialReader] Opened COM13 at 115200 baud</msg>
+<msg time="2025-06-08T11:18:06.441829" level="TRACE">Return: None</msg>
+<arg>${ESP32_PORT_UART}</arg>
+<arg>${ESP32_BAUD}</arg>
+<arg>${TIMEOUT}</arg>
+<status status="PASS" start="2025-06-08T11:18:06.438726" elapsed="0.003103"/>
+</kw>
+<kw name="Volume device down" owner="keywords">
+<msg time="2025-06-08T11:18:06.445336" level="TRACE">Arguments: [  ]</msg>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:06.445336" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:06.445336" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:06.445336" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:06.445336" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:06.445336" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:06.945717" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:06.945717" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:06.445336" elapsed="0.500381"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:06.946243" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:06.946243" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:06.945717" elapsed="0.000526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:06.946243" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:07.446785" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:07.446785" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:06.946243" elapsed="0.500542"/>
+</kw>
+<msg time="2025-06-08T11:18:07.446785" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:06.445336" elapsed="1.001449"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">0</var>
+<status status="PASS" start="2025-06-08T11:18:06.445336" elapsed="1.001449"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:07.447298" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:07.447298" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:07.447298" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:07.447298" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:07.447298" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:07.947394" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:07.947394" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:07.447298" elapsed="0.500096"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:07.947394" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:07.947394" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:07.947394" elapsed="0.001015"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:07.948409" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:08.448913" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:07.948409" elapsed="0.500504"/>
+</kw>
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:07.447298" elapsed="1.001615"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">1</var>
+<status status="PASS" start="2025-06-08T11:18:07.446785" elapsed="1.002128"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:08.448913" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:08.448913" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:08.949005" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:08.949005" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:08.448913" elapsed="0.500092"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:08.949005" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:08.949005" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:08.949005" elapsed="0.001011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:08.950016" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:09.450293" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:09.450293" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:08.950016" elapsed="0.500277"/>
+</kw>
+<msg time="2025-06-08T11:18:09.450293" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:08.448913" elapsed="1.001380"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">2</var>
+<status status="PASS" start="2025-06-08T11:18:08.448913" elapsed="1.001380"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:09.450899" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:09.450899" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:09.450899" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:09.450899" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:09.450899" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:09.951406" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:09.951406" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:09.450899" elapsed="0.500507"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:09.951929" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:09.952463" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:09.951406" elapsed="0.001057"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:09.952463" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:10.453529" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:10.453529" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:09.952463" elapsed="0.501066"/>
+</kw>
+<msg time="2025-06-08T11:18:10.453529" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:09.450899" elapsed="1.002630"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">3</var>
+<status status="PASS" start="2025-06-08T11:18:09.450899" elapsed="1.002630"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:10.453529" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:10.453529" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:10.455184" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:10.453529" elapsed="0.001655"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:10.455184" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:10.955668" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:10.955668" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:10.455184" elapsed="0.500484"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:10.955668" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:10.955668" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:10.955668" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:10.955668" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:11.456361" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:11.456361" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:10.955668" elapsed="0.500693"/>
+</kw>
+<msg time="2025-06-08T11:18:11.456361" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:10.453529" elapsed="1.002832"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">4</var>
+<status status="PASS" start="2025-06-08T11:18:10.453529" elapsed="1.002832"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:11.456361" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:11.457490" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:11.457490" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:11.456361" elapsed="0.001129"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:11.458292" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:11.958399" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:11.958399" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:11.457490" elapsed="0.500909"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:11.958920" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:11.959224" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:11.958399" elapsed="0.000825"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:11.959224" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:12.459363" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:11.959224" elapsed="0.500139"/>
+</kw>
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:11.456361" elapsed="1.003002"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">5</var>
+<status status="PASS" start="2025-06-08T11:18:11.456361" elapsed="1.003002"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:12.459363" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:12.459363" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:12.959914" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:12.959914" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:12.459363" elapsed="0.500551"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:12.959914" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:12.959914" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:12.959914" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:12.959914" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:13.460236" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:12.959914" elapsed="0.500322"/>
+</kw>
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:12.459363" elapsed="1.000873"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">6</var>
+<status status="PASS" start="2025-06-08T11:18:12.459363" elapsed="1.000873"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:13.460236" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:13.460236" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:13.961011" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:13.961011" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:13.460236" elapsed="0.500775"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:13.961011" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:13.961011" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:13.961011" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:13.961011" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:14.461528" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:14.461528" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:13.961011" elapsed="0.500517"/>
+</kw>
+<msg time="2025-06-08T11:18:14.461528" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:13.460236" elapsed="1.001292"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">7</var>
+<status status="PASS" start="2025-06-08T11:18:13.460236" elapsed="1.001292"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:14.461528" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:14.462538" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:14.462538" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:14.461528" elapsed="0.001010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:14.462538" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:14.962948" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:14.962948" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:14.462538" elapsed="0.500410"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:14.962948" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:14.962948" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:14.962948" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:14.962948" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:15.463343" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:14.962948" elapsed="0.500395"/>
+</kw>
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:14.461528" elapsed="1.001815"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">8</var>
+<status status="PASS" start="2025-06-08T11:18:14.461528" elapsed="1.001815"/>
+</iter>
+<iter>
+<kw name="Volume DOWN" owner="keywords">
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Arguments: [ '12' | '0' ]</msg>
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>0</arg>
+<status status="PASS" start="2025-06-08T11:18:15.463343" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:15.463343" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:15.963594" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:15.963594" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:15.463343" elapsed="0.500251"/>
+</kw>
+<kw name="Set Gpio State" owner="pico">
+<msg time="2025-06-08T11:18:15.963594" level="TRACE">Arguments: [ '12' | '1' ]</msg>
+<msg time="2025-06-08T11:18:15.963594" level="TRACE">Return: None</msg>
+<arg>${VOL_DOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:15.963594" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-08T11:18:15.963594" level="TRACE">Arguments: [ '0.5' ]</msg>
+<msg time="2025-06-08T11:18:16.463783" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-06-08T11:18:16.463783" level="TRACE">Return: None</msg>
+<arg>0.5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-08T11:18:15.963594" elapsed="0.500189"/>
+</kw>
+<msg time="2025-06-08T11:18:16.463783" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:15.463343" elapsed="1.000440"/>
+</kw>
+<var name="${TOGGLE_COUNTER}">9</var>
+<status status="PASS" start="2025-06-08T11:18:15.463343" elapsed="1.000440"/>
+</iter>
+<var>${TOGGLE_COUNTER}</var>
+<value>0</value>
+<value>10</value>
+<status status="PASS" start="2025-06-08T11:18:06.445336" elapsed="10.018447"/>
+</for>
+<msg time="2025-06-08T11:18:16.463783" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:06.441829" elapsed="10.021954"/>
+</kw>
+<kw name="Read From Serial" owner="read_serial">
+<msg time="2025-06-08T11:18:16.463783" level="TRACE">Arguments: [ 4 ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[SERIAL] [LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN
+[SERIAL] [LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN
+[SERIAL] [LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN
+[SERIAL] [LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN
+[SERIAL] [LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN
+[SERIAL] [LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN
+[SERIAL] [LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN
+[SERIAL] [LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN
+[SERIAL] [LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN
+[SERIAL] [LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN']</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">${logs_after_down} = ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN', '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN', '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN', '[LOG] 20438,Confetti - Right N...</msg>
+<var>${logs_after_down}</var>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:18:16.463783" elapsed="4.007444"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '9' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 9 w logu: [LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>9</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '8' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 8 w logu: [LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>8</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '7' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 7 w logu: [LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>7</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '6' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 6 w logu: [LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>6</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '5' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 5 w logu: [LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '4' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 4 w logu: [LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>4</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '3' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 3 w logu: [LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>3</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '2' ]</msg>
+<msg time="2025-06-08T11:18:20.471227" level="INFO">[VERIFY] Znaleziono volume = 2 w logu: [LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>2</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Log Field Contains" owner="read_serial">
+<msg time="2025-06-08T11:18:20.471227" level="TRACE">Arguments: [ ['[LOG] 17428,Confetti - Right Now,17,153,1,9,VOL_DOWN',
+ '[LOG] 18428,Confetti - Right Now,18,153,1,8,VOL_DOWN',
+ '[LOG] 19437,Confetti - Right Now,19,153,1,7,VOL_DOWN',
+ '[LOG] 20438,Confetti - Right Now,20,153,1,6,VOL_DOWN',
+ '[LOG] 21441,Confetti - Right Now,21,153,1,5,VOL_DOWN',
+ '[LOG] 22450,Confetti - Right Now,22,153,1,4,VOL_DOWN',
+ '[LOG] 23445,Confetti - Right Now,23,153,1,3,VOL_DOWN',
+ '[LOG] 24477,Confetti - Right Now,24,153,1,2,VOL_DOWN',
+ '[LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN',
+ '[LOG] 26455,Confetti - Right Now,26,153,1,0,VOL_DOWN'] | 'volume' | '5' | '1' ]</msg>
+<msg time="2025-06-08T11:18:20.475817" level="INFO">[VERIFY] Znaleziono volume = 1 w logu: [LOG] 25445,Confetti - Right Now,25,153,1,1,VOL_DOWN</msg>
+<msg time="2025-06-08T11:18:20.475817" level="TRACE">Return: None</msg>
+<arg>${logs_after_down}</arg>
+<arg>volume</arg>
+<arg>5</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-06-08T11:18:20.471227" elapsed="0.004590"/>
+</kw>
+<kw name="Close Serial Port" owner="read_serial" type="TEARDOWN">
+<msg time="2025-06-08T11:18:20.475817" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-06-08T11:18:20.585913" level="INFO">[SerialReader] Serial connection closed</msg>
+<msg time="2025-06-08T11:18:20.585913" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-06-08T11:18:20.475817" elapsed="0.110096"/>
+</kw>
+<doc>Zwiększa i zmniejsza głośność, potem sprawdza, czy zmiana została zarejestrowana</doc>
+<tag>i2s</tag>
+<status status="PASS" start="2025-06-08T11:17:46.278030" elapsed="34.307883"/>
+</test>
+<status status="PASS" start="2025-06-08T11:12:42.893576" elapsed="337.692337"/>
+</suite>
+<status status="PASS" start="2025-06-08T11:12:42.891577" elapsed="337.695724"/>
+</suite>
+<status status="PASS" start="2025-06-08T11:12:42.851259" elapsed="337.736042"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">i2s</stat>
+</tag>
+<suite>
+<stat name="Test" id="s1" pass="5" fail="0" skip="0">Test</stat>
+<stat name="robotTests" id="s1-s1" pass="5" fail="0" skip="0">Test.robotTests</stat>
+<stat name="Functionality Tests" id="s1-s1-s1" pass="5" fail="0" skip="0">Test.robotTests.Functionality Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-08T11:12:54.605117" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-06-08T11:15:46.901690" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+</errors>
+</robot>
