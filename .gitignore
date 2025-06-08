@@ -19,3 +19,8 @@ __pycache__/
 
 test/run_tests_venv/*
 !test/run_tests_venv/req.txt
+
+# keep I2S tests outputs
+!test/LOGI_pass/log_i2s.html
+!test/LOGI_pass/output_i2s.xml
+!test/LOGI_pass/report_i2s.html
