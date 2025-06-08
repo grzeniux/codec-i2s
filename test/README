@@ -1,11 +1,41 @@
 
-This directory is intended for PlatformIO Test Runner and project tests.
+# CODEC-I2S - Testy automatyczne (Robot Framework)
 
-Unit Testing is a software testing method by which individual units of
-source code, sets of one or more MCU program modules together with associated
-control data, usage procedures, and operating procedures, are tested to
-determine whether they are fit for use. Unit testing finds problems early
-in the development cycle.
+Ten projekt wykorzystuje [Robot Framework](https://robotframework.org/) do testowania funkcjonalności systemu odtwarzacza MP3 opartego na ESP32. Testy czytają logi printowane na UART, komunikując się bezpośrednio z urządzeniem. Do symulacji klikania przycisku użyto innego mikrokontrolera, który wystawia odpowiednie stany logiczne.
 
-More information about PlatformIO Unit Testing:
-- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+
+
+## 🧩 Zakres testów
+
+Poniżej znajduje się lista dostępnych testów automatycznych do ESP32, które sprawdzają kluczowe funkcje odtwarzacza audio:
+
+| Test                           | Opis                                                                                   |
+|-------------------------------|-----------------------------------------------------------------------------------------|
+| `VERIFY_AUTO_NEXT`            | Czeka aż piosenka się skończy i sprawdza, czy pojawił się log `AUTO_NEXT`.            |
+| `VERIFY_NEXT_AND_PREV_BUTTONS`| Symuluje kliknięcia przycisków `NEXT` i `PREV`, a następnie analizuje logi.           |
+| `VERIFY_PLAY_PAUSE_TOGGLE`    | Dwukrotnie przełącza `PLAY/PAUSE` i weryfikuje odpowiednie akcje w logach.            |
+| `MEASURE_BOOT_TIMES_OVER_10_RUNS` | Wykonuje 10 restartów ESP32 i zapisuje czas wstania systemu (`millis`).             |
+| `VERIFY_VOLUME_CONTROL`       | Testuje zwiększanie i zmniejszanie głośności – logi powinny zawierać zmiany `volume`. |
+
+
+
+---
+
+## 📂 Struktura katalogu `test/`
+
+- `lib/` – biblioteki pomocnicze do obsługi UARTa, GPIO oraz ekstrakcji danych z logów.
+- `robot/` – pliki z właściwymi przypadkami testowymi `.robot`.
+- `run_tests_venv/` – lokalne środowisko wirtualne do izolowanego uruchamiania testów.
+- `robotTestsOutput/` – domyślny folder z wynikami testów (`log.html`, `report.html`, `output.xml`).
+- `run_tests.bat` – główny skrypt do uruchamiania testów.
+- `activate_venv.bat` – skrypt do tworzenia i aktywowania środowiska oraz instalowania zależności.
+- `req.txt` – lista zależności Pythona
+---
+
+
+### ▶️ Uruchamianie testów
+
+1. Uruchom `activate_venv.bat`, by aktywować środowisko wirtualne.
+2. Następnie wykonaj `run_tests.bat`, by uruchomić testy z tagiem `i2s`.
+
+Wyniki znajdziesz w katalogu `test/robotTestsOutput` (`log.html`, `report.html`, `output.xml`).
